@@ -1,0 +1,479 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		43D95B80163A67FC007EC647 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95B7F163A67FC007EC647 /* UIKit.framework */; };
+		43D95B82163A67FC007EC647 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95B81163A67FC007EC647 /* Foundation.framework */; };
+		43D95B84163A67FC007EC647 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95B83163A67FC007EC647 /* CoreGraphics.framework */; };
+		43D95B86163A67FC007EC647 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95B85163A67FC007EC647 /* GLKit.framework */; };
+		43D95B88163A67FC007EC647 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95B87163A67FC007EC647 /* OpenGLES.framework */; };
+		43D95B8E163A67FC007EC647 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43D95B8C163A67FC007EC647 /* InfoPlist.strings */; };
+		43D95B90163A67FC007EC647 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D95B8F163A67FC007EC647 /* main.m */; };
+		43D95B94163A67FC007EC647 /* QuadzAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D95B93163A67FC007EC647 /* QuadzAppDelegate.m */; };
+		43D95B96163A67FC007EC647 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 43D95B95163A67FC007EC647 /* Default.png */; };
+		43D95B98163A67FC007EC647 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43D95B97163A67FC007EC647 /* Default@2x.png */; };
+		43D95B9A163A67FC007EC647 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43D95B99163A67FC007EC647 /* Default-568h@2x.png */; };
+		43D95B9D163A67FC007EC647 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43D95B9B163A67FC007EC647 /* MainStoryboard.storyboard */; };
+		43D95B9F163A67FC007EC647 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 43D95B9E163A67FC007EC647 /* Shader.fsh */; };
+		43D95BA1163A67FC007EC647 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 43D95BA0163A67FC007EC647 /* Shader.vsh */; };
+		43D95BA4163A67FC007EC647 /* QuadzViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D95BA3163A67FC007EC647 /* QuadzViewController.m */; };
+		43D95BAC163A67FC007EC647 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95BAB163A67FC007EC647 /* SenTestingKit.framework */; };
+		43D95BAD163A67FC007EC647 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95B7F163A67FC007EC647 /* UIKit.framework */; };
+		43D95BAE163A67FC007EC647 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95B81163A67FC007EC647 /* Foundation.framework */; };
+		43D95BB6163A67FC007EC647 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43D95BB4163A67FC007EC647 /* InfoPlist.strings */; };
+		43D95BB9163A67FC007EC647 /* QuadzTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D95BB8163A67FC007EC647 /* QuadzTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		43D95BAF163A67FC007EC647 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 43D95B72163A67FC007EC647 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43D95B7A163A67FC007EC647;
+			remoteInfo = Quadz;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		43D95B7B163A67FC007EC647 /* Quadz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quadz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		43D95B7F163A67FC007EC647 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		43D95B81163A67FC007EC647 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		43D95B83163A67FC007EC647 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		43D95B85163A67FC007EC647 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		43D95B87163A67FC007EC647 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		43D95B8B163A67FC007EC647 /* Quadz-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Quadz-Info.plist"; sourceTree = "<group>"; };
+		43D95B8D163A67FC007EC647 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		43D95B8F163A67FC007EC647 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		43D95B91163A67FC007EC647 /* Quadz-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Quadz-Prefix.pch"; sourceTree = "<group>"; };
+		43D95B92163A67FC007EC647 /* QuadzAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuadzAppDelegate.h; sourceTree = "<group>"; };
+		43D95B93163A67FC007EC647 /* QuadzAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuadzAppDelegate.m; sourceTree = "<group>"; };
+		43D95B95163A67FC007EC647 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		43D95B97163A67FC007EC647 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		43D95B99163A67FC007EC647 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		43D95B9C163A67FC007EC647 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		43D95B9E163A67FC007EC647 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
+		43D95BA0163A67FC007EC647 /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
+		43D95BA2163A67FC007EC647 /* QuadzViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuadzViewController.h; sourceTree = "<group>"; };
+		43D95BA3163A67FC007EC647 /* QuadzViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuadzViewController.m; sourceTree = "<group>"; };
+		43D95BAA163A67FC007EC647 /* QuadzTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuadzTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		43D95BAB163A67FC007EC647 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		43D95BB3163A67FC007EC647 /* QuadzTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuadzTests-Info.plist"; sourceTree = "<group>"; };
+		43D95BB5163A67FC007EC647 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		43D95BB7163A67FC007EC647 /* QuadzTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuadzTests.h; sourceTree = "<group>"; };
+		43D95BB8163A67FC007EC647 /* QuadzTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuadzTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		43D95B78163A67FC007EC647 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43D95B80163A67FC007EC647 /* UIKit.framework in Frameworks */,
+				43D95B82163A67FC007EC647 /* Foundation.framework in Frameworks */,
+				43D95B84163A67FC007EC647 /* CoreGraphics.framework in Frameworks */,
+				43D95B86163A67FC007EC647 /* GLKit.framework in Frameworks */,
+				43D95B88163A67FC007EC647 /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43D95BA6163A67FC007EC647 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43D95BAC163A67FC007EC647 /* SenTestingKit.framework in Frameworks */,
+				43D95BAD163A67FC007EC647 /* UIKit.framework in Frameworks */,
+				43D95BAE163A67FC007EC647 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		43D95B70163A67FC007EC647 = {
+			isa = PBXGroup;
+			children = (
+				43D95B89163A67FC007EC647 /* Quadz */,
+				43D95BB1163A67FC007EC647 /* QuadzTests */,
+				43D95B7E163A67FC007EC647 /* Frameworks */,
+				43D95B7C163A67FC007EC647 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		43D95B7C163A67FC007EC647 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				43D95B7B163A67FC007EC647 /* Quadz.app */,
+				43D95BAA163A67FC007EC647 /* QuadzTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		43D95B7E163A67FC007EC647 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				43D95B7F163A67FC007EC647 /* UIKit.framework */,
+				43D95B81163A67FC007EC647 /* Foundation.framework */,
+				43D95B83163A67FC007EC647 /* CoreGraphics.framework */,
+				43D95B85163A67FC007EC647 /* GLKit.framework */,
+				43D95B87163A67FC007EC647 /* OpenGLES.framework */,
+				43D95BAB163A67FC007EC647 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		43D95B89163A67FC007EC647 /* Quadz */ = {
+			isa = PBXGroup;
+			children = (
+				43D95B92163A67FC007EC647 /* QuadzAppDelegate.h */,
+				43D95B93163A67FC007EC647 /* QuadzAppDelegate.m */,
+				43D95B9B163A67FC007EC647 /* MainStoryboard.storyboard */,
+				43D95B9E163A67FC007EC647 /* Shader.fsh */,
+				43D95BA0163A67FC007EC647 /* Shader.vsh */,
+				43D95BA2163A67FC007EC647 /* QuadzViewController.h */,
+				43D95BA3163A67FC007EC647 /* QuadzViewController.m */,
+				43D95B8A163A67FC007EC647 /* Supporting Files */,
+			);
+			path = Quadz;
+			sourceTree = "<group>";
+		};
+		43D95B8A163A67FC007EC647 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				43D95B8B163A67FC007EC647 /* Quadz-Info.plist */,
+				43D95B8C163A67FC007EC647 /* InfoPlist.strings */,
+				43D95B8F163A67FC007EC647 /* main.m */,
+				43D95B91163A67FC007EC647 /* Quadz-Prefix.pch */,
+				43D95B95163A67FC007EC647 /* Default.png */,
+				43D95B97163A67FC007EC647 /* Default@2x.png */,
+				43D95B99163A67FC007EC647 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		43D95BB1163A67FC007EC647 /* QuadzTests */ = {
+			isa = PBXGroup;
+			children = (
+				43D95BB7163A67FC007EC647 /* QuadzTests.h */,
+				43D95BB8163A67FC007EC647 /* QuadzTests.m */,
+				43D95BB2163A67FC007EC647 /* Supporting Files */,
+			);
+			path = QuadzTests;
+			sourceTree = "<group>";
+		};
+		43D95BB2163A67FC007EC647 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				43D95BB3163A67FC007EC647 /* QuadzTests-Info.plist */,
+				43D95BB4163A67FC007EC647 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		43D95B7A163A67FC007EC647 /* Quadz */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43D95BBC163A67FC007EC647 /* Build configuration list for PBXNativeTarget "Quadz" */;
+			buildPhases = (
+				43D95B77163A67FC007EC647 /* Sources */,
+				43D95B78163A67FC007EC647 /* Frameworks */,
+				43D95B79163A67FC007EC647 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Quadz;
+			productName = Quadz;
+			productReference = 43D95B7B163A67FC007EC647 /* Quadz.app */;
+			productType = "com.apple.product-type.application";
+		};
+		43D95BA9163A67FC007EC647 /* QuadzTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43D95BBF163A67FC007EC647 /* Build configuration list for PBXNativeTarget "QuadzTests" */;
+			buildPhases = (
+				43D95BA5163A67FC007EC647 /* Sources */,
+				43D95BA6163A67FC007EC647 /* Frameworks */,
+				43D95BA7163A67FC007EC647 /* Resources */,
+				43D95BA8163A67FC007EC647 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				43D95BB0163A67FC007EC647 /* PBXTargetDependency */,
+			);
+			name = QuadzTests;
+			productName = QuadzTests;
+			productReference = 43D95BAA163A67FC007EC647 /* QuadzTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		43D95B72163A67FC007EC647 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Quadz;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Dirk Zimmermann";
+			};
+			buildConfigurationList = 43D95B75163A67FC007EC647 /* Build configuration list for PBXProject "Quadz" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 43D95B70163A67FC007EC647;
+			productRefGroup = 43D95B7C163A67FC007EC647 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				43D95B7A163A67FC007EC647 /* Quadz */,
+				43D95BA9163A67FC007EC647 /* QuadzTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		43D95B79163A67FC007EC647 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43D95B8E163A67FC007EC647 /* InfoPlist.strings in Resources */,
+				43D95B96163A67FC007EC647 /* Default.png in Resources */,
+				43D95B98163A67FC007EC647 /* Default@2x.png in Resources */,
+				43D95B9A163A67FC007EC647 /* Default-568h@2x.png in Resources */,
+				43D95B9D163A67FC007EC647 /* MainStoryboard.storyboard in Resources */,
+				43D95B9F163A67FC007EC647 /* Shader.fsh in Resources */,
+				43D95BA1163A67FC007EC647 /* Shader.vsh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43D95BA7163A67FC007EC647 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43D95BB6163A67FC007EC647 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		43D95BA8163A67FC007EC647 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		43D95B77163A67FC007EC647 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43D95B90163A67FC007EC647 /* main.m in Sources */,
+				43D95B94163A67FC007EC647 /* QuadzAppDelegate.m in Sources */,
+				43D95BA4163A67FC007EC647 /* QuadzViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43D95BA5163A67FC007EC647 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43D95BB9163A67FC007EC647 /* QuadzTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		43D95BB0163A67FC007EC647 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 43D95B7A163A67FC007EC647 /* Quadz */;
+			targetProxy = 43D95BAF163A67FC007EC647 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		43D95B8C163A67FC007EC647 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				43D95B8D163A67FC007EC647 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		43D95B9B163A67FC007EC647 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				43D95B9C163A67FC007EC647 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		43D95BB4163A67FC007EC647 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				43D95BB5163A67FC007EC647 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		43D95BBA163A67FC007EC647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		43D95BBB163A67FC007EC647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		43D95BBD163A67FC007EC647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Quadz/Quadz-Prefix.pch";
+				INFOPLIST_FILE = "Quadz/Quadz-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		43D95BBE163A67FC007EC647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Quadz/Quadz-Prefix.pch";
+				INFOPLIST_FILE = "Quadz/Quadz-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		43D95BC0163A67FC007EC647 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Quadz.app/Quadz";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Quadz/Quadz-Prefix.pch";
+				INFOPLIST_FILE = "QuadzTests/QuadzTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		43D95BC1163A67FC007EC647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Quadz.app/Quadz";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Quadz/Quadz-Prefix.pch";
+				INFOPLIST_FILE = "QuadzTests/QuadzTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		43D95B75163A67FC007EC647 /* Build configuration list for PBXProject "Quadz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43D95BBA163A67FC007EC647 /* Debug */,
+				43D95BBB163A67FC007EC647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		43D95BBC163A67FC007EC647 /* Build configuration list for PBXNativeTarget "Quadz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43D95BBD163A67FC007EC647 /* Debug */,
+				43D95BBE163A67FC007EC647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		43D95BBF163A67FC007EC647 /* Build configuration list for PBXNativeTarget "QuadzTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43D95BC0163A67FC007EC647 /* Debug */,
+				43D95BC1163A67FC007EC647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 43D95B72163A67FC007EC647 /* Project object */;
+}
