@@ -98,7 +98,8 @@ typedef struct {
     const vertex_t vertices[] = {
         { -1, -1, 255, 255, 0, 255 },
         { 1, -1, 255, 255, 0, 255 },
-        { 0, 1, 255, 255, 0, 255 },
+        { -1, 1, 255, 255, 0, 255 },
+        { 1, 1, 255, 255, 0, 255 },
     };
     
     glGenVertexArraysOES(1, &_vertexArray);
@@ -153,7 +154,7 @@ typedef struct {
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
     glClear(GL_COLOR_BUFFER_BIT);
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 }
 
 #pragma mark -  OpenGL ES 2 shader compilation
