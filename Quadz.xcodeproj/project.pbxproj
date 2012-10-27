@@ -19,14 +19,14 @@
 		43D95B98163A67FC007EC647 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43D95B97163A67FC007EC647 /* Default@2x.png */; };
 		43D95B9A163A67FC007EC647 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43D95B99163A67FC007EC647 /* Default-568h@2x.png */; };
 		43D95B9D163A67FC007EC647 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43D95B9B163A67FC007EC647 /* MainStoryboard.storyboard */; };
-		43D95B9F163A67FC007EC647 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 43D95B9E163A67FC007EC647 /* Shader.fsh */; };
-		43D95BA1163A67FC007EC647 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 43D95BA0163A67FC007EC647 /* Shader.vsh */; };
 		43D95BA4163A67FC007EC647 /* QuadzViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D95BA3163A67FC007EC647 /* QuadzViewController.m */; };
 		43D95BAC163A67FC007EC647 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95BAB163A67FC007EC647 /* SenTestingKit.framework */; };
 		43D95BAD163A67FC007EC647 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95B7F163A67FC007EC647 /* UIKit.framework */; };
 		43D95BAE163A67FC007EC647 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95B81163A67FC007EC647 /* Foundation.framework */; };
 		43D95BB6163A67FC007EC647 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43D95BB4163A67FC007EC647 /* InfoPlist.strings */; };
 		43D95BB9163A67FC007EC647 /* QuadzTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D95BB8163A67FC007EC647 /* QuadzTests.m */; };
+		43D95BDB163A8FFB007EC647 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 43D95BC5163A6AEF007EC647 /* Shader.vsh */; };
+		43D95BDC163A8FFB007EC647 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 43D95BC4163A6AEF007EC647 /* Shader.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +56,6 @@
 		43D95B97163A67FC007EC647 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		43D95B99163A67FC007EC647 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		43D95B9C163A67FC007EC647 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		43D95B9E163A67FC007EC647 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
-		43D95BA0163A67FC007EC647 /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
 		43D95BA2163A67FC007EC647 /* QuadzViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuadzViewController.h; sourceTree = "<group>"; };
 		43D95BA3163A67FC007EC647 /* QuadzViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuadzViewController.m; sourceTree = "<group>"; };
 		43D95BAA163A67FC007EC647 /* QuadzTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuadzTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +64,9 @@
 		43D95BB5163A67FC007EC647 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		43D95BB7163A67FC007EC647 /* QuadzTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuadzTests.h; sourceTree = "<group>"; };
 		43D95BB8163A67FC007EC647 /* QuadzTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuadzTests.m; sourceTree = "<group>"; };
+		43D95BC4163A6AEF007EC647 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
+		43D95BC5163A6AEF007EC647 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
+		43D95BE2163A91E5007EC647 /* DLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,14 +130,14 @@
 		43D95B89163A67FC007EC647 /* Quadz */ = {
 			isa = PBXGroup;
 			children = (
+				43D95BE1163A91E5007EC647 /* DLog */,
 				43D95B92163A67FC007EC647 /* QuadzAppDelegate.h */,
 				43D95B93163A67FC007EC647 /* QuadzAppDelegate.m */,
 				43D95B9B163A67FC007EC647 /* MainStoryboard.storyboard */,
-				43D95B9E163A67FC007EC647 /* Shader.fsh */,
-				43D95BA0163A67FC007EC647 /* Shader.vsh */,
 				43D95BA2163A67FC007EC647 /* QuadzViewController.h */,
 				43D95BA3163A67FC007EC647 /* QuadzViewController.m */,
 				43D95B8A163A67FC007EC647 /* Supporting Files */,
+				43D95BC2163A6AEF007EC647 /* Resources */,
 			);
 			path = Quadz;
 			sourceTree = "<group>";
@@ -172,6 +173,31 @@
 				43D95BB4163A67FC007EC647 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		43D95BC2163A6AEF007EC647 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				43D95BC3163A6AEF007EC647 /* Shaders */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		43D95BC3163A6AEF007EC647 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				43D95BC5163A6AEF007EC647 /* Shader.vsh */,
+				43D95BC4163A6AEF007EC647 /* Shader.fsh */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		43D95BE1163A91E5007EC647 /* DLog */ = {
+			isa = PBXGroup;
+			children = (
+				43D95BE2163A91E5007EC647 /* DLog.h */,
+			);
+			path = DLog;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,13 +272,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43D95BDB163A8FFB007EC647 /* Shader.vsh in Resources */,
+				43D95BDC163A8FFB007EC647 /* Shader.fsh in Resources */,
 				43D95B8E163A67FC007EC647 /* InfoPlist.strings in Resources */,
 				43D95B96163A67FC007EC647 /* Default.png in Resources */,
 				43D95B98163A67FC007EC647 /* Default@2x.png in Resources */,
 				43D95B9A163A67FC007EC647 /* Default-568h@2x.png in Resources */,
 				43D95B9D163A67FC007EC647 /* MainStoryboard.storyboard in Resources */,
-				43D95B9F163A67FC007EC647 /* Shader.fsh in Resources */,
-				43D95BA1163A67FC007EC647 /* Shader.vsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +490,7 @@
 				43D95BBE163A67FC007EC647 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		43D95BBF163A67FC007EC647 /* Build configuration list for PBXNativeTarget "QuadzTests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +499,7 @@
 				43D95BC1163A67FC007EC647 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

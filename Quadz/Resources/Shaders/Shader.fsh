@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Dirk Zimmermann. All rights reserved.
 //
 
-varying lowp vec4 colorVarying;
+varying mediump vec4 v_color;
 
 void main()
 {
-    gl_FragColor = colorVarying;
+    gl_FragColor = v_color;
 }
