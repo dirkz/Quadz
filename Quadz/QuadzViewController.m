@@ -38,6 +38,7 @@ typedef struct {
 }
 
 @property (strong, nonatomic) EAGLContext *context;
+@property (nonatomic, readonly) CGSize scaledBounds;
 
 @end
 
@@ -90,10 +91,13 @@ typedef struct {
 - (void)setupGL
 {
     [EAGLContext setCurrentContext:self.context];
+
     [self loadShaders];
     glUseProgram(_program);
+
+    [self setupProjection];
+
     glClearColor(0.2f, 0.2f, .75f, 1.0f);
-    glViewport(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
 
     const vertex_t vertices[] = {
         { -1, -1, 255, 255, 0, 255 },
@@ -115,10 +119,14 @@ typedef struct {
     glEnableVertexAttribArray(AttributeIndexColor);
     glVertexAttribPointer(AttributeIndexColor, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(vertex_t),
                           (GLvoid *) offsetof(vertex_t, color));
-    
+}
+
+- (void)setupProjection
+{
+    DLog(@"%s viewport %@", __PRETTY_FUNCTION__, NSStringFromCGSize(self.scaledBounds));
+    glViewport(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
     GLKMatrix4 mvp = [self matrixOrthofLeft:-2.f right:2.f bottom:-2.f top:2.f near:-2.f far:2.f];
     glUniformMatrix4fv(_uniforms[UniformIndexModelViewProjection], 1, GL_FALSE, mvp.m);
-    glCheckError();
 }
 
 - (void)tearDownGL
@@ -134,6 +142,11 @@ typedef struct {
     }
 }
 
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    [self setupProjection];
+}
+
 #pragma mark - Util
 
 /** Creates an orthographic projection matrix similar to glOrthof */
@@ -147,6 +160,13 @@ typedef struct {
                           0.f, 2/(top-bottom), 0.f, 0.f,
                           0.f, 0.f, -2/(far-near), 0.f,
                           tx, ty, tz, 1.f);
+}
+
+/** @return view bounds in pixels */
+- (CGSize)scaledBounds
+{
+    return CGSizeMake(self.view.bounds.size.width * self.view.contentScaleFactor,
+                      self.view.bounds.size.height * self.view.contentScaleFactor);
 }
 
 #pragma mark - GLKView and GLKViewController delegate methods
