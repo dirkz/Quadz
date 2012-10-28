@@ -14,5 +14,6 @@
 
 - (void)addElement:(Quad)quad;
 - (Quad)elementAt:(size_t)index;
+- (void)replaceElementAt:(size_t)index withElement:(Quad)quad;
 
 @end

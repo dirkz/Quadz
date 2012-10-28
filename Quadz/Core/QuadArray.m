@@ -28,4 +28,9 @@
     return *quad;
 }
 
+- (void)replaceElementAt:(size_t)index withElement:(Quad)quad
+{
+    [super replaceElementAt:index withElement:&quad];
+}
+
 @end
