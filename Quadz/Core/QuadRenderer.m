@@ -81,7 +81,8 @@ static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLubyte 
             CGFloat halfHeight = ((GLfloat) quad.height)/2;
 
             // bottom left / degenerate triangle
-            vertex_t bottomLeft = VertexMakeWithColorPointer(quad.x - halfWidth, quad.y - halfHeight, quad.color);
+            vertex_t bottomLeft = VertexMakeWithColorPointer(QuadX(quad) - halfWidth, QuadY(quad) - halfHeight,
+                                                             QuadColor(&quad));
             if (i > 0) {
                 // create degenerate triangle
                 *vertex++ = lastVertex;
@@ -90,11 +91,14 @@ static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLubyte 
             *vertex++ = bottomLeft;
 
             // bottom right
-            *vertex++ = VertexMakeWithColorPointer(quad.x + halfWidth, quad.y - halfHeight, quad.color);
+            *vertex++ = VertexMakeWithColorPointer(QuadX(quad) + halfWidth, QuadY(quad) - halfHeight,
+                                                   QuadColor(&quad));
             // top left
-            *vertex++ = VertexMakeWithColorPointer(quad.x - halfWidth, quad.y + halfHeight, quad.color);
+            *vertex++ = VertexMakeWithColorPointer(QuadX(quad) - halfWidth, QuadY(quad) + halfHeight,
+                                                   QuadColor(&quad));
             // top right
-            lastVertex = VertexMakeWithColorPointer(quad.x + halfWidth, quad.y + halfHeight, quad.color);
+            lastVertex = VertexMakeWithColorPointer(QuadX(quad) + halfWidth, QuadY(quad) + halfHeight,
+                                                    QuadColor(&quad));
             *vertex++ = lastVertex;
         }
     }

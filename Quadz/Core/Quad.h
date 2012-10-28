@@ -21,3 +21,8 @@ static inline Quad QuadWithColor(int16_t x, int16_t y, int16_t width, int16_t he
     return q;
 }
 
+static inline CGFloat QuadX(Quad q) { return q.x; }
+static inline CGFloat QuadY(Quad q) { return q.y; }
+static inline int16_t QuadWidth(Quad q) { return q.width; }
+static inline int16_t QuadHeight(Quad q) { return q.height; }
+static inline uint8_t *QuadColor(Quad *q) { return q->color; }

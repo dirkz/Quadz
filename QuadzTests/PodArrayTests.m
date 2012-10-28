@@ -38,8 +38,8 @@
     for (int i = 0; i < _pods.count; ++i) {
         Quad *tmpquad = [_pods elementAt:i];
         Quad quad = *tmpquad;
-        STAssertTrue(quad.x == i, @"expected quad.position[0] to be %d", i);
-        STAssertTrue(quad.color[3] == i, @"expected quad.color[3] to be %d", i);
+        STAssertTrue(QuadX(quad) == i, @"expected quad.position[0] to be %d", i);
+        STAssertTrue(QuadColor(&quad)[3] == i, @"expected quad.color[3] to be %d", i);
     }
 }
 
@@ -49,11 +49,11 @@
     [_pods removeElementAt:2];
     STAssertTrue(_pods.count == count-1, @"wrong pods count %d after remove (9 expected)", _pods.count);
     Quad *quad = [_pods elementAt:1];
-    STAssertTrue(quad->x == 1, @"expected element 1 to have all 1, %d instead", quad->x);
+    STAssertTrue(QuadX(*quad) == 1, @"expected element 1 to have all 1, %d instead", QuadX(*quad));
     quad = [_pods elementAt:2];
-    STAssertTrue(quad->x == 3, @"expected new element 2 to have all 3, %d instead", quad->x);
+    STAssertTrue(QuadX(*quad) == 3, @"expected new element 2 to have all 3, %d instead", QuadX(*quad));
     quad = [_pods elementAt:3];
-    STAssertTrue(quad->x == 4, @"expected new element 3 to have all 4, %d instead", quad->x);
+    STAssertTrue(QuadX(*quad) == 4, @"expected new element 3 to have all 4, %d instead", QuadX(*quad));
 }
 
 - (void)testPodArrayRemoveAllElements
