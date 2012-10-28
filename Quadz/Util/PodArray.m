@@ -8,6 +8,8 @@
 
 #import "PodArray.h"
 
+const size_t PodArrayInitialCapacity = 50;
+
 @interface PodArray ()
 {
     void *_data;
@@ -24,13 +26,13 @@
 {
     if (self = [super init]) {
         _elementSize = elementSize;
-        _capacity = 2;
+        _capacity = PodArrayInitialCapacity;
         _data = calloc(_elementSize, _capacity);
     }
     return self;
 }
 
-- (void)addElement:(void *)data
+- (void)addElement:(const void *)data
 {
     if (_count >= _capacity) {
         size_t newCapacity = _capacity * 2;
@@ -65,6 +67,30 @@
 - (const void *)elements
 {
     return _data;
+}
+
+- (void)removeAllElements
+{
+    _capacity = PodArrayInitialCapacity;
+    _data = realloc(_data, _elementSize * _capacity);
+    _count = 0;
+}
+
+- (void)replaceElementAt:(size_t)index withElement:(const void *)data
+{
+    void *target = [self elementAt:index];
+    memcpy(target, data, _elementSize);
+}
+
+- (void)removeElementAt:(size_t)index
+{
+    if (index != _count - 1) {
+        void *target = [self elementAt:index];
+        void *source = [self elementAt:index+1];
+        size_t numElementsToCopy = _count - 1 - index;
+        memcpy(target, source, _elementSize * numElementsToCopy);
+    }
+    _count--;
 }
 
 @end

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		43BF229A163BBCB50036A379 /* Quad.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BF2299163BBCB50036A379 /* Quad.m */; };
-		43BF229E163BCF6F0036A379 /* QuadArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BF229D163BCF6F0036A379 /* QuadArray.m */; };
 		43BF22A1163BD0260036A379 /* PodArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BF22A0163BD0260036A379 /* PodArray.m */; };
 		43BF22A2163BD5AD0036A379 /* PodArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BF22A0163BD0260036A379 /* PodArray.m */; };
 		43D95B80163A67FC007EC647 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95B7F163A67FC007EC647 /* UIKit.framework */; };
@@ -28,9 +27,10 @@
 		43D95BAD163A67FC007EC647 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95B7F163A67FC007EC647 /* UIKit.framework */; };
 		43D95BAE163A67FC007EC647 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95B81163A67FC007EC647 /* Foundation.framework */; };
 		43D95BB6163A67FC007EC647 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43D95BB4163A67FC007EC647 /* InfoPlist.strings */; };
-		43D95BB9163A67FC007EC647 /* QuadzTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D95BB8163A67FC007EC647 /* QuadzTests.m */; };
+		43D95BB9163A67FC007EC647 /* PodArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D95BB8163A67FC007EC647 /* PodArrayTests.m */; };
 		43D95BDB163A8FFB007EC647 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 43D95BC5163A6AEF007EC647 /* Shader.vsh */; };
 		43D95BDC163A8FFB007EC647 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 43D95BC4163A6AEF007EC647 /* Shader.fsh */; };
+		43F401D9163D134E00F1A370 /* QuadArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F401D8163D134E00F1A370 /* QuadArray.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +46,6 @@
 /* Begin PBXFileReference section */
 		43BF2298163BBCB50036A379 /* Quad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quad.h; sourceTree = "<group>"; };
 		43BF2299163BBCB50036A379 /* Quad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quad.m; sourceTree = "<group>"; };
-		43BF229C163BCF6F0036A379 /* QuadArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadArray.h; sourceTree = "<group>"; };
-		43BF229D163BCF6F0036A379 /* QuadArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadArray.m; sourceTree = "<group>"; };
 		43BF229F163BD0260036A379 /* PodArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PodArray.h; sourceTree = "<group>"; };
 		43BF22A0163BD0260036A379 /* PodArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PodArray.m; sourceTree = "<group>"; };
 		43D95B7B163A67FC007EC647 /* Quadz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quadz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,11 +70,13 @@
 		43D95BAB163A67FC007EC647 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		43D95BB3163A67FC007EC647 /* QuadzTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuadzTests-Info.plist"; sourceTree = "<group>"; };
 		43D95BB5163A67FC007EC647 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		43D95BB7163A67FC007EC647 /* QuadzTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuadzTests.h; sourceTree = "<group>"; };
-		43D95BB8163A67FC007EC647 /* QuadzTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuadzTests.m; sourceTree = "<group>"; };
+		43D95BB7163A67FC007EC647 /* PodArrayTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PodArrayTests.h; sourceTree = "<group>"; };
+		43D95BB8163A67FC007EC647 /* PodArrayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PodArrayTests.m; sourceTree = "<group>"; };
 		43D95BC4163A6AEF007EC647 /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
 		43D95BC5163A6AEF007EC647 /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
 		43D95BE2163A91E5007EC647 /* DLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = "<group>"; };
+		43F401D7163D134E00F1A370 /* QuadArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadArray.h; sourceTree = "<group>"; };
+		43F401D8163D134E00F1A370 /* QuadArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadArray.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +110,8 @@
 			children = (
 				43BF2298163BBCB50036A379 /* Quad.h */,
 				43BF2299163BBCB50036A379 /* Quad.m */,
-				43BF229C163BCF6F0036A379 /* QuadArray.h */,
-				43BF229D163BCF6F0036A379 /* QuadArray.m */,
+				43F401D7163D134E00F1A370 /* QuadArray.h */,
+				43F401D8163D134E00F1A370 /* QuadArray.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -191,8 +191,8 @@
 		43D95BB1163A67FC007EC647 /* QuadzTests */ = {
 			isa = PBXGroup;
 			children = (
-				43D95BB7163A67FC007EC647 /* QuadzTests.h */,
-				43D95BB8163A67FC007EC647 /* QuadzTests.m */,
+				43D95BB7163A67FC007EC647 /* PodArrayTests.h */,
+				43D95BB8163A67FC007EC647 /* PodArrayTests.m */,
 				43D95BB2163A67FC007EC647 /* Supporting Files */,
 			);
 			path = QuadzTests;
@@ -349,8 +349,8 @@
 				43D95B94163A67FC007EC647 /* QuadzAppDelegate.m in Sources */,
 				43D95BA4163A67FC007EC647 /* QuadzViewController.m in Sources */,
 				43BF229A163BBCB50036A379 /* Quad.m in Sources */,
-				43BF229E163BCF6F0036A379 /* QuadArray.m in Sources */,
 				43BF22A1163BD0260036A379 /* PodArray.m in Sources */,
+				43F401D9163D134E00F1A370 /* QuadArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43D95BB9163A67FC007EC647 /* QuadzTests.m in Sources */,
+				43D95BB9163A67FC007EC647 /* PodArrayTests.m in Sources */,
 				43BF22A2163BD5AD0036A379 /* PodArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
