@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43BF229A163BBCB50036A379 /* Quad.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BF2299163BBCB50036A379 /* Quad.m */; };
+		43BF229E163BCF6F0036A379 /* QuadArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BF229D163BCF6F0036A379 /* QuadArray.m */; };
+		43BF22A1163BD0260036A379 /* PodArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BF22A0163BD0260036A379 /* PodArray.m */; };
+		43BF22A2163BD5AD0036A379 /* PodArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BF22A0163BD0260036A379 /* PodArray.m */; };
 		43D95B80163A67FC007EC647 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95B7F163A67FC007EC647 /* UIKit.framework */; };
 		43D95B82163A67FC007EC647 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95B81163A67FC007EC647 /* Foundation.framework */; };
 		43D95B84163A67FC007EC647 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95B83163A67FC007EC647 /* CoreGraphics.framework */; };
@@ -40,6 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43BF2298163BBCB50036A379 /* Quad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quad.h; sourceTree = "<group>"; };
+		43BF2299163BBCB50036A379 /* Quad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quad.m; sourceTree = "<group>"; };
+		43BF229C163BCF6F0036A379 /* QuadArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadArray.h; sourceTree = "<group>"; };
+		43BF229D163BCF6F0036A379 /* QuadArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadArray.m; sourceTree = "<group>"; };
+		43BF229F163BD0260036A379 /* PodArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PodArray.h; sourceTree = "<group>"; };
+		43BF22A0163BD0260036A379 /* PodArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PodArray.m; sourceTree = "<group>"; };
 		43D95B7B163A67FC007EC647 /* Quadz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quadz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43D95B7F163A67FC007EC647 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		43D95B81163A67FC007EC647 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -95,6 +105,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		43BF2296163BBC920036A379 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				43BF2298163BBCB50036A379 /* Quad.h */,
+				43BF2299163BBCB50036A379 /* Quad.m */,
+				43BF229C163BCF6F0036A379 /* QuadArray.h */,
+				43BF229D163BCF6F0036A379 /* QuadArray.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		43BF229B163BBED30036A379 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				43BF229F163BD0260036A379 /* PodArray.h */,
+				43BF22A0163BD0260036A379 /* PodArray.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		43D95B70163A67FC007EC647 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +160,8 @@
 		43D95B89163A67FC007EC647 /* Quadz */ = {
 			isa = PBXGroup;
 			children = (
+				43BF229B163BBED30036A379 /* Util */,
+				43BF2296163BBC920036A379 /* Core */,
 				43D95BE1163A91E5007EC647 /* DLog */,
 				43D95B92163A67FC007EC647 /* QuadzAppDelegate.h */,
 				43D95B93163A67FC007EC647 /* QuadzAppDelegate.m */,
@@ -316,6 +348,9 @@
 				43D95B90163A67FC007EC647 /* main.m in Sources */,
 				43D95B94163A67FC007EC647 /* QuadzAppDelegate.m in Sources */,
 				43D95BA4163A67FC007EC647 /* QuadzViewController.m in Sources */,
+				43BF229A163BBCB50036A379 /* Quad.m in Sources */,
+				43BF229E163BCF6F0036A379 /* QuadArray.m in Sources */,
+				43BF22A1163BD0260036A379 /* PodArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43D95BB9163A67FC007EC647 /* QuadzTests.m in Sources */,
+				43BF22A2163BD5AD0036A379 /* PodArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
