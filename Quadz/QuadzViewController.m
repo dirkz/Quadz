@@ -9,6 +9,7 @@
 #import "QuadzViewController.h"
 
 #import "DLog.h"
+#import "QuadRenderer.h"
 
 // Uniform index.
 typedef enum : NSUInteger {
@@ -16,29 +17,15 @@ typedef enum : NSUInteger {
     UniformIndexMax
 } UniformIndex;
 
-// Attribute index.
-typedef enum : NSUInteger {
-    AttributeIndexPosition,
-    AttributeIndexColor,
-    AttributeIndexMax
-} AttributeIndex;
-
-typedef struct {
-    GLshort position[2];
-    GLubyte color[4];
-} vertex_t;
-
 @interface QuadzViewController ()
 {
     GLint _uniforms[UniformIndexMax];
     GLuint _program;
-    
-    GLuint _vertexArray;
-    GLuint _vertexBuffer;
 }
 
 @property (strong, nonatomic) EAGLContext *context;
 @property (nonatomic, readonly) CGSize scaledBounds;
+@property (nonatomic, strong) QuadRenderer *quadRenderer;
 
 @end
 
@@ -57,7 +44,8 @@ typedef struct {
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
-    
+
+    _quadRenderer = [[QuadRenderer alloc] init];
     [self setupGL];
 }
 
@@ -99,26 +87,9 @@ typedef struct {
 
     glClearColor(0.2f, 0.2f, .75f, 1.0f);
 
-    const vertex_t vertices[] = {
-        { -1, -1, 255, 255, 0, 255 },
-        { 1, -1, 255, 255, 0, 255 },
-        { -1, 1, 255, 255, 0, 255 },
-        { 1, 1, 255, 255, 0, 255 },
-    };
-    
-    glGenVertexArraysOES(1, &_vertexArray);
-    glBindVertexArrayOES(_vertexArray);
-    
-    glGenBuffers(1, &_vertexBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-    
-    glEnableVertexAttribArray(AttributeIndexPosition);
-    glVertexAttribPointer(AttributeIndexPosition, 2, GL_SHORT, GL_FALSE, sizeof(vertex_t),
-                          (GLvoid *) offsetof(vertex_t, position));
-    glEnableVertexAttribArray(AttributeIndexColor);
-    glVertexAttribPointer(AttributeIndexColor, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(vertex_t),
-                          (GLvoid *) offsetof(vertex_t, color));
+    GLubyte color[] = { 255, 255, 0, 255 };
+    [self.quadRenderer addQuad:QuadWithColor(0, 0, 2, 2, color)];
+    [self.quadRenderer bind];
 }
 
 - (void)setupProjection
@@ -132,9 +103,6 @@ typedef struct {
 - (void)tearDownGL
 {
     [EAGLContext setCurrentContext:self.context];
-    
-    glDeleteBuffers(1, &_vertexBuffer);
-    glDeleteVertexArraysOES(1, &_vertexArray);
     
     if (_program) {
         glDeleteProgram(_program);
@@ -174,7 +142,7 @@ typedef struct {
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
     glClear(GL_COLOR_BUFFER_BIT);
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+    [self.quadRenderer draw];
 }
 
 #pragma mark -  OpenGL ES 2 shader compilation

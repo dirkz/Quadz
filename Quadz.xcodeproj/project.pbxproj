@@ -31,6 +31,7 @@
 		43D95BDB163A8FFB007EC647 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 43D95BC5163A6AEF007EC647 /* Shader.vsh */; };
 		43D95BDC163A8FFB007EC647 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 43D95BC4163A6AEF007EC647 /* Shader.fsh */; };
 		43F401D9163D134E00F1A370 /* QuadArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F401D8163D134E00F1A370 /* QuadArray.m */; };
+		43F401DD163D1F7C00F1A370 /* QuadRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F401DC163D1F7C00F1A370 /* QuadRenderer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		43D95BE2163A91E5007EC647 /* DLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = "<group>"; };
 		43F401D7163D134E00F1A370 /* QuadArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadArray.h; sourceTree = "<group>"; };
 		43F401D8163D134E00F1A370 /* QuadArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadArray.m; sourceTree = "<group>"; };
+		43F401DB163D1F7C00F1A370 /* QuadRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadRenderer.h; sourceTree = "<group>"; };
+		43F401DC163D1F7C00F1A370 /* QuadRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadRenderer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,8 @@
 				43BF2299163BBCB50036A379 /* Quad.m */,
 				43F401D7163D134E00F1A370 /* QuadArray.h */,
 				43F401D8163D134E00F1A370 /* QuadArray.m */,
+				43F401DB163D1F7C00F1A370 /* QuadRenderer.h */,
+				43F401DC163D1F7C00F1A370 /* QuadRenderer.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -351,6 +356,7 @@
 				43BF229A163BBCB50036A379 /* Quad.m in Sources */,
 				43BF22A1163BD0260036A379 /* PodArray.m in Sources */,
 				43F401D9163D134E00F1A370 /* QuadArray.m in Sources */,
+				43F401DD163D1F7C00F1A370 /* QuadRenderer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

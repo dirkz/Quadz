@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 
 typedef struct {
-    CGFloat position[2]; // center
-    int16_t size[2];
+    // center position
+    CGFloat x, y;
+    int16_t width, height;
     uint8_t color[4];
 } Quad;
 
