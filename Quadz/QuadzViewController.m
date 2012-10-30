@@ -87,8 +87,6 @@ typedef enum : NSUInteger {
 
     glClearColor(0.2f, 0.2f, .75f, 1.0f);
 
-    GLubyte color[] = { 255, 255, 0, 255 };
-    [self.quadRenderer addQuad:QuadWithColor(0, 0, 2, 2, color)];
     [self.quadRenderer bind];
 }
 
@@ -96,7 +94,8 @@ typedef enum : NSUInteger {
 {
     DLog(@"%s viewport %@", __PRETTY_FUNCTION__, NSStringFromCGSize(self.scaledBounds));
     glViewport(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
-    GLKMatrix4 mvp = [self matrixOrthofLeft:-2.f right:2.f bottom:-2.f top:2.f near:-2.f far:2.f];
+    GLKMatrix4 mvp = [self matrixOrthofLeft:0.f right:self.scaledBounds.width bottom:0.f top:self.scaledBounds.height
+                                       near:-2.f far:2.f];
     glUniformMatrix4fv(_uniforms[UniformIndexModelViewProjection], 1, GL_FALSE, mvp.m);
 }
 
@@ -135,6 +134,14 @@ typedef enum : NSUInteger {
 {
     return CGSizeMake(self.view.bounds.size.width * self.view.contentScaleFactor,
                       self.view.bounds.size.height * self.view.contentScaleFactor);
+}
+
+- (void)update
+{
+    CGSize bounds = self.scaledBounds;
+    GLubyte color[] = { rand() % 256, rand() % 256, rand() % 256, 255 };
+    [self.quadRenderer addQuad:QuadWithColor(rand() % (int) bounds.width, rand() % (int) bounds.height,
+                                             50, 50, color)];
 }
 
 #pragma mark - GLKView and GLKViewController delegate methods

@@ -36,10 +36,9 @@ static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLubyte 
     /** the last number of vertices rendered into @see _vertices */
     size_t _numberOfVertices;
 
-    /** the last number of vertices rendered from @see _vertices */
-    size_t _numberOfVerticesRendered;
-
+    /** set to YES once the vertex arrays and vertex buffer objects were initialized */
     BOOL _setup;
+
     GLuint _vertexArray;
     GLuint _vertexBuffer;
 }
@@ -137,8 +136,10 @@ static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLubyte 
 - (void)draw
 {
     [self renderQuadArray:self.quads];
-    glBufferData(GL_ARRAY_BUFFER, _numberOfVertices * sizeof(vertex_t), _vertices, GL_DYNAMIC_DRAW);
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+    if (_numberOfVertices) {
+        glBufferData(GL_ARRAY_BUFFER, _numberOfVertices * sizeof(vertex_t), _vertices, GL_DYNAMIC_DRAW);
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, _numberOfVertices);
+    }
 }
 
 @end
