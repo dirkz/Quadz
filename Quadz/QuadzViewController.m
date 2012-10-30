@@ -34,6 +34,8 @@ typedef enum : NSUInteger {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.preferredFramesPerSecond = 60;
     
     self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
 
@@ -43,7 +45,7 @@ typedef enum : NSUInteger {
     
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
-    view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
+    view.drawableDepthFormat = GLKViewDrawableDepthFormatNone;
 
     _quadRenderer = [[QuadRenderer alloc] init];
     [self setupGL];
