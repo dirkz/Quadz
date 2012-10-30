@@ -16,6 +16,8 @@ typedef struct {
     GLubyte color[4];
 } vertex_t;
 
+typedef GLushort QuadRendererIndexType;
+
 static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLubyte *color)
 {
     vertex_t v = { x, y, color[0], color[1], color[2], color[3] };
@@ -33,6 +35,9 @@ static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLubyte 
     /** the last vertex buffer we rendered in */
     vertex_t *_vertices;
 
+    /** index buffer */
+    GLushort *_indices;
+
     /** the last number of vertices rendered into @see _vertices */
     size_t _numberOfVertices;
 
@@ -41,6 +46,8 @@ static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLubyte 
 
     GLuint _vertexArray;
     GLuint _vertexBuffer;
+    GLuint _indexBuffer;
+    GLuint _lastIndex;
 }
 
 - (id)init
@@ -62,6 +69,45 @@ static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLubyte 
     }
 }
 
+- (void)renderQuadArray:(QuadArray *)quads vertexBuffer:(vertex_t *)vertexBuffer indexBuffer:(GLushort *)indexBuffer
+{
+    _lastIndex = 0;
+    vertex_t *vertex = vertexBuffer;
+    GLushort *index = indexBuffer;
+    for (size_t i = 0; i < quads.count; ++i) {
+        Quad quad = [quads elementAt:i];
+
+        CGFloat halfWidth = ((GLfloat) quad.width)/2;
+        CGFloat halfHeight = ((GLfloat) quad.height)/2;
+
+        // produce degenerate triangle to move to next quad position
+        if (i > 0) {
+            *index++ = _lastIndex-1;
+            *index++ = _lastIndex;
+        }
+
+        // bottom left
+        *vertex++ = VertexMakeWithColorPointer(QuadX(quad) - halfWidth, QuadY(quad) - halfHeight,
+                                               QuadColor(&quad));
+        *index++ = _lastIndex++;
+
+        // bottom right
+        *vertex++ = VertexMakeWithColorPointer(QuadX(quad) + halfWidth, QuadY(quad) - halfHeight,
+                                               QuadColor(&quad));
+        *index++ = _lastIndex++;
+
+        // top left
+        *vertex++ = VertexMakeWithColorPointer(QuadX(quad) - halfWidth, QuadY(quad) + halfHeight,
+                                               QuadColor(&quad));
+        *index++ = _lastIndex++;
+
+        // top right
+        *vertex++ = VertexMakeWithColorPointer(QuadX(quad) + halfWidth, QuadY(quad) + halfHeight,
+                                               QuadColor(&quad));
+        *index++ = _lastIndex++;
+    }
+}
+
 - (void)renderQuadArray:(QuadArray *)quads
 {
     if (quads.count > 0) {
@@ -70,36 +116,9 @@ static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLubyte 
         if (newNumberOfVertices != _numberOfVertices) {
             _numberOfVertices = newNumberOfVertices;
             _vertices = realloc(_vertices, _numberOfVertices * sizeof(vertex_t));
+            _indices = realloc(_indices, _numberOfVertices * sizeof(GLushort));
         }
-        vertex_t lastVertex;
-        vertex_t *vertex = _vertices;
-        for (size_t i = 0; i < quads.count; ++i) {
-            Quad quad = [quads elementAt:i];
-
-            CGFloat halfWidth = ((GLfloat) quad.width)/2;
-            CGFloat halfHeight = ((GLfloat) quad.height)/2;
-
-            // bottom left / degenerate triangle
-            vertex_t bottomLeft = VertexMakeWithColorPointer(QuadX(quad) - halfWidth, QuadY(quad) - halfHeight,
-                                                             QuadColor(&quad));
-            if (i > 0) {
-                // create degenerate triangle
-                *vertex++ = lastVertex;
-                *vertex++ = bottomLeft;
-            }
-            *vertex++ = bottomLeft;
-
-            // bottom right
-            *vertex++ = VertexMakeWithColorPointer(QuadX(quad) + halfWidth, QuadY(quad) - halfHeight,
-                                                   QuadColor(&quad));
-            // top left
-            *vertex++ = VertexMakeWithColorPointer(QuadX(quad) - halfWidth, QuadY(quad) + halfHeight,
-                                                   QuadColor(&quad));
-            // top right
-            lastVertex = VertexMakeWithColorPointer(QuadX(quad) + halfWidth, QuadY(quad) + halfHeight,
-                                                    QuadColor(&quad));
-            *vertex++ = lastVertex;
-        }
+        [self renderQuadArray:quads vertexBuffer:_vertices indexBuffer:_indices];
     }
 }
 
@@ -120,6 +139,8 @@ static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLubyte 
         glBindVertexArrayOES(_vertexArray);
         glGenBuffers(1, &_vertexBuffer);
         glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
+        glGenBuffers(1, &_indexBuffer);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
 
         glEnableVertexAttribArray(AttributeIndexPosition);
         glVertexAttribPointer(AttributeIndexPosition, 2, GL_FLOAT, GL_FALSE, sizeof(vertex_t),
@@ -127,10 +148,13 @@ static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLubyte 
         glEnableVertexAttribArray(AttributeIndexColor);
         glVertexAttribPointer(AttributeIndexColor, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(vertex_t),
                               (GLvoid *) offsetof(vertex_t, color));
+
         _setup = YES;
+    } else {
+        glBindVertexArrayOES(_vertexArray);
+        glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
     }
-    glBindVertexArrayOES(_vertexArray);
-    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
 }
 
 - (void)draw
@@ -138,7 +162,8 @@ static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLubyte 
     [self renderQuadArray:self.quads];
     if (_numberOfVertices) {
         glBufferData(GL_ARRAY_BUFFER, _numberOfVertices * sizeof(vertex_t), _vertices, GL_DYNAMIC_DRAW);
-        glDrawArrays(GL_TRIANGLE_STRIP, 0, _numberOfVertices);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, _numberOfVertices * sizeof(GLushort), _indices, GL_DYNAMIC_DRAW);
+        glDrawElements(GL_TRIANGLE_STRIP, _numberOfVertices, GL_UNSIGNED_SHORT, 0);
     }
 }
 
