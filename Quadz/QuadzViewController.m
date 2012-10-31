@@ -10,10 +10,12 @@
 
 #import "DLog.h"
 #import "QuadRenderer.h"
+#import "RectTextureAtlas.h"
 
 // Uniform index.
 typedef enum : NSUInteger {
     UniformIndexModelViewProjection,
+    UniformIndexTextureUnit0,
     UniformIndexMax
 } UniformIndex;
 
@@ -25,7 +27,8 @@ typedef enum : NSUInteger {
 
 @property (strong, nonatomic) EAGLContext *context;
 @property (nonatomic, readonly) CGSize scaledBounds;
-@property (nonatomic, strong) QuadRenderer *quadRenderer;
+@property (nonatomic) QuadRenderer *quadRenderer;
+@property (nonatomic) RectTextureAtlas *textureAtlas;
 
 @end
 
@@ -82,6 +85,10 @@ typedef enum : NSUInteger {
 {
     [EAGLContext setCurrentContext:self.context];
 
+    NSString *texImagePath = [[NSBundle mainBundle] pathForResource:@"geoduck 20x40.png" ofType:nil];
+    UIImage *texImage = [UIImage imageWithContentsOfFile:texImagePath];
+    _textureAtlas = [[RectTextureAtlas alloc] initWithImage:texImage tilesize:CGSizeMake(20.f, 40.f)];
+    
     [self loadShaders];
     glUseProgram(_program);
 
@@ -140,10 +147,10 @@ typedef enum : NSUInteger {
 
 - (void)update
 {
-    CGSize bounds = self.scaledBounds;
-    GLubyte color[] = { rand() % 256, rand() % 256, rand() % 256, 255 };
-    [self.quadRenderer addQuad:QuadWithColor(rand() % (int) bounds.width, rand() % (int) bounds.height,
-                                             50, 50, color)];
+    Quad quad = [self.textureAtlas quadAtPosition:CGPointMake(rand() % (NSUInteger) self.scaledBounds.width,
+                                                              rand() % (NSUInteger) self.scaledBounds.height)
+                                      withTexture:rand() % 1000];
+    [self.quadRenderer addQuad:quad];
 }
 
 #pragma mark - GLKView and GLKViewController delegate methods
@@ -188,6 +195,7 @@ typedef enum : NSUInteger {
     // This needs to be done prior to linking.
     glBindAttribLocation(_program, AttributeIndexPosition, "a_position");
     glBindAttribLocation(_program, AttributeIndexColor, "a_color");
+    glBindAttribLocation(_program, AttributeIndexTexture0, "a_texCoord0");
     
     // Link program.
     if (![self linkProgram:_program]) {
@@ -214,6 +222,11 @@ typedef enum : NSUInteger {
     NSAssert1(_uniforms[UniformIndexModelViewProjection] != -1,
               @"invalid value %d for _uniforms[UniformIndexModelViewProjection] (u_modelViewProjectionMatrix)",
               _uniforms[UniformIndexModelViewProjection]);
+
+    _uniforms[UniformIndexTextureUnit0] = glGetUniformLocation(_program, "s_texture0");
+    NSAssert1(_uniforms[UniformIndexTextureUnit0] != -1,
+              @"invalid value %d for _uniforms[UniformIndexTextureUnit] (s_texture0)",
+              _uniforms[UniformIndexTextureUnit0]);
     
     // Release vertex and fragment shaders.
     if (vertShader) {

@@ -14,6 +14,7 @@
 typedef enum : NSUInteger {
     AttributeIndexPosition,
     AttributeIndexColor,
+    AttributeIndexTexture0,
     AttributeIndexMax
 } AttributeIndex;
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4388DDA8163FE493009D3E3C /* geoduck 20x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 4388DDA7163FE493009D3E3C /* geoduck 20x40.png */; };
+		4388DDAC163FE4B9009D3E3C /* RectTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 4388DDAB163FE4B9009D3E3C /* RectTextureAtlas.m */; };
 		43BF229A163BBCB50036A379 /* Quad.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BF2299163BBCB50036A379 /* Quad.m */; };
 		43BF22A1163BD0260036A379 /* PodArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BF22A0163BD0260036A379 /* PodArray.m */; };
 		43BF22A2163BD5AD0036A379 /* PodArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BF22A0163BD0260036A379 /* PodArray.m */; };
@@ -45,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4388DDA7163FE493009D3E3C /* geoduck 20x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "geoduck 20x40.png"; sourceTree = "<group>"; };
+		4388DDAA163FE4B9009D3E3C /* RectTextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectTextureAtlas.h; sourceTree = "<group>"; };
+		4388DDAB163FE4B9009D3E3C /* RectTextureAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectTextureAtlas.m; sourceTree = "<group>"; };
 		43BF2298163BBCB50036A379 /* Quad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quad.h; sourceTree = "<group>"; };
 		43BF2299163BBCB50036A379 /* Quad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quad.m; sourceTree = "<group>"; };
 		43BF229F163BD0260036A379 /* PodArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PodArray.h; sourceTree = "<group>"; };
@@ -108,6 +113,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4388DDA6163FE493009D3E3C /* Textures */ = {
+			isa = PBXGroup;
+			children = (
+				4388DDA7163FE493009D3E3C /* geoduck 20x40.png */,
+			);
+			path = Textures;
+			sourceTree = "<group>";
+		};
 		43BF2296163BBC920036A379 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +130,8 @@
 				43F401D8163D134E00F1A370 /* QuadArray.m */,
 				43F401DB163D1F7C00F1A370 /* QuadRenderer.h */,
 				43F401DC163D1F7C00F1A370 /* QuadRenderer.m */,
+				4388DDAA163FE4B9009D3E3C /* RectTextureAtlas.h */,
+				4388DDAB163FE4B9009D3E3C /* RectTextureAtlas.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -215,6 +230,7 @@
 		43D95BC2163A6AEF007EC647 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4388DDA6163FE493009D3E3C /* Textures */,
 				43D95BC3163A6AEF007EC647 /* Shaders */,
 			);
 			path = Resources;
@@ -316,6 +332,7 @@
 				43D95B98163A67FC007EC647 /* Default@2x.png in Resources */,
 				43D95B9A163A67FC007EC647 /* Default-568h@2x.png in Resources */,
 				43D95B9D163A67FC007EC647 /* MainStoryboard.storyboard in Resources */,
+				4388DDA8163FE493009D3E3C /* geoduck 20x40.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +374,7 @@
 				43BF22A1163BD0260036A379 /* PodArray.m in Sources */,
 				43F401D9163D134E00F1A370 /* QuadArray.m in Sources */,
 				43F401DD163D1F7C00F1A370 /* QuadRenderer.m in Sources */,
+				4388DDAC163FE4B9009D3E3C /* RectTextureAtlas.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
