@@ -1,4 +1,3 @@
 Quadz
 
-Sample project for showing how to draw textured quads with Open GL 2.0 on iOS 6 using GLKit
-(GLKViewController and GLKView).
+Sample project for showing how to draw textured quads with Open GL 2.0 on iOS 6 using GLKit (GLKViewController and GLKView).
