@@ -45,7 +45,7 @@ typedef enum : NSUInteger {
     if (!self.context) {
         NSLog(@"Failed to create ES context");
     }
-    
+
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormatNone;
@@ -84,6 +84,11 @@ typedef enum : NSUInteger {
 - (void)setupGL
 {
     [EAGLContext setCurrentContext:self.context];
+
+    GLint maxTextureSize;
+    glGetIntegerv(GL_MAX_TEXTURE_SIZE, &maxTextureSize);
+    glCheckError();
+    DLog(@"%s maxTextureSize %d", __PRETTY_FUNCTION__, maxTextureSize);
 
     NSString *texImagePath = [[NSBundle mainBundle] pathForResource:@"geoduck 20x40.png" ofType:nil];
     UIImage *texImage = [UIImage imageWithContentsOfFile:texImagePath];
