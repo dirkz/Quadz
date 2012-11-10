@@ -6,6 +6,22 @@
 //  Copyright (c) 2012 Dirk Zimmermann. All rights reserved.
 //
 
+//
+// Copyright 2012 Dirk Zimmermann
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
 #import "QuadzViewController.h"
 
 #import "DLog.h"
@@ -90,9 +106,9 @@ typedef enum : NSUInteger {
     glCheckError();
     DLog(@"%s maxTextureSize %d", __PRETTY_FUNCTION__, maxTextureSize);
 
-    NSString *texImagePath = [[NSBundle mainBundle] pathForResource:@"geoduck 20x40.png" ofType:nil];
+    NSString *texImagePath = [[NSBundle mainBundle] pathForResource:@"absurd124.png" ofType:nil];
     UIImage *texImage = [UIImage imageWithContentsOfFile:texImagePath];
-    _textureAtlas = [[RectTextureAtlas alloc] initWithImage:texImage tilesize:CGSizeMake(20.f, 40.f)];
+    _textureAtlas = [[RectTextureAtlas alloc] initWithImage:texImage tilesize:CGSizeMake(124.f, 124.f)];
     
     [self loadShaders];
     glUseProgram(_program);

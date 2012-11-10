@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4388DDA8163FE493009D3E3C /* geoduck 20x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 4388DDA7163FE493009D3E3C /* geoduck 20x40.png */; };
 		4388DDAC163FE4B9009D3E3C /* RectTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 4388DDAB163FE4B9009D3E3C /* RectTextureAtlas.m */; };
 		43BF229A163BBCB50036A379 /* Quad.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BF2299163BBCB50036A379 /* Quad.m */; };
 		43BF22A1163BD0260036A379 /* PodArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BF22A0163BD0260036A379 /* PodArray.m */; };
 		43BF22A2163BD5AD0036A379 /* PodArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BF22A0163BD0260036A379 /* PodArray.m */; };
+		43C9877F164E744400A1B730 /* absurd124.png in Resources */ = {isa = PBXBuildFile; fileRef = 43C9877E164E744400A1B730 /* absurd124.png */; };
 		43D95B80163A67FC007EC647 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95B7F163A67FC007EC647 /* UIKit.framework */; };
 		43D95B82163A67FC007EC647 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95B81163A67FC007EC647 /* Foundation.framework */; };
 		43D95B84163A67FC007EC647 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D95B83163A67FC007EC647 /* CoreGraphics.framework */; };
@@ -47,13 +47,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4388DDA7163FE493009D3E3C /* geoduck 20x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "geoduck 20x40.png"; sourceTree = "<group>"; };
 		4388DDAA163FE4B9009D3E3C /* RectTextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectTextureAtlas.h; sourceTree = "<group>"; };
 		4388DDAB163FE4B9009D3E3C /* RectTextureAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectTextureAtlas.m; sourceTree = "<group>"; };
 		43BF2298163BBCB50036A379 /* Quad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quad.h; sourceTree = "<group>"; };
 		43BF2299163BBCB50036A379 /* Quad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quad.m; sourceTree = "<group>"; };
 		43BF229F163BD0260036A379 /* PodArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PodArray.h; sourceTree = "<group>"; };
 		43BF22A0163BD0260036A379 /* PodArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PodArray.m; sourceTree = "<group>"; };
+		43C9877E164E744400A1B730 /* absurd124.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = absurd124.png; sourceTree = "<group>"; };
 		43D95B7B163A67FC007EC647 /* Quadz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quadz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43D95B7F163A67FC007EC647 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		43D95B81163A67FC007EC647 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -116,7 +116,7 @@
 		4388DDA6163FE493009D3E3C /* Textures */ = {
 			isa = PBXGroup;
 			children = (
-				4388DDA7163FE493009D3E3C /* geoduck 20x40.png */,
+				43C9877E164E744400A1B730 /* absurd124.png */,
 			);
 			path = Textures;
 			sourceTree = "<group>";
@@ -332,7 +332,7 @@
 				43D95B98163A67FC007EC647 /* Default@2x.png in Resources */,
 				43D95B9A163A67FC007EC647 /* Default-568h@2x.png in Resources */,
 				43D95B9D163A67FC007EC647 /* MainStoryboard.storyboard in Resources */,
-				4388DDA8163FE493009D3E3C /* geoduck 20x40.png in Resources */,
+				43C9877F164E744400A1B730 /* absurd124.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
