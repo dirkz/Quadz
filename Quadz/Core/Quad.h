@@ -26,7 +26,7 @@
 
 typedef struct {
     CGFloat x, y; // center position
-    int16_t width, height;
+    CGFloat width, height;
     CGRect texture; // texture rectangle with origin top left
     uint8_t color[4];
 } Quad;
@@ -48,8 +48,13 @@ static inline Quad QuadWithTextureRect(int16_t x, int16_t y, int16_t width, int1
 
 static inline CGFloat QuadX(Quad q) { return q.x; }
 static inline CGFloat QuadY(Quad q) { return q.y; }
-static inline int16_t QuadWidth(Quad q) { return q.width; }
-static inline int16_t QuadHeight(Quad q) { return q.height; }
+static inline CGPoint QuadPosition(Quad q) { return CGPointMake(q.x, q.y); }
+static inline CGFloat QuadWidth(Quad q) { return q.width; }
+static inline CGFloat QuadHeight(Quad q) { return q.height; }
+static inline CGSize QuadSize(Quad q) { return CGSizeMake(q.width, q.height); }
+static inline void QuadSetWidth(Quad *q, CGFloat width) { q->width = width; }
+static inline void QuadSetHeight(Quad *q, CGFloat height) { q->height = height; }
+static inline void QuadSetSize(Quad *q, CGSize size) { q->width = size.width; q->height = size.height; }
 static inline uint8_t *QuadColor(Quad *q) { return q->color; }
 static inline CGRect QuadTextureRect(Quad q) { return q.texture; }
 static inline void QuadSetColor(Quad *q, uint8_t color[4]) {

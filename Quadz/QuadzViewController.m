@@ -174,6 +174,8 @@ typedef enum : NSUInteger {
         Quad quad = [self.textureAtlas quadAtPosition:CGPointMake(rand() % (NSUInteger) self.scaledBounds.width,
                                                                   rand() % (NSUInteger) self.scaledBounds.height)
                                           withTexture:rand() % 1057];
+        QuadSetWidth(&quad, 64.f);
+        QuadSetHeight(&quad, 64.f);
         [self.quadRenderer addQuad:quad];
     }
 }
