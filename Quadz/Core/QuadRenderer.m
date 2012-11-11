@@ -201,4 +201,9 @@ static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLfloat 
     }
 }
 
+- (NSUInteger)numberOfQuads
+{
+    return self.quads.count;
+}
+
 @end

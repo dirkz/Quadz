@@ -38,6 +38,8 @@ typedef enum : NSUInteger {
 
 @interface QuadRenderer : NSObject
 
+@property (nonatomic, readonly) NSUInteger numberOfQuads;
+
 - (void)addQuad:(Quad)quad;
 - (void)removeAllQuads;
 - (void)bind;

@@ -168,10 +168,14 @@ typedef enum : NSUInteger {
 
 - (void)update
 {
-    Quad quad = [self.textureAtlas quadAtPosition:CGPointMake(rand() % (NSUInteger) self.scaledBounds.width,
-                                                              rand() % (NSUInteger) self.scaledBounds.height)
-                                      withTexture:rand() % 1000];
-    [self.quadRenderer addQuad:quad];
+    [self.quadRenderer removeAllQuads];
+    NSUInteger numberOfQuadsToDraw = rand() % (80 * 21 + 1);
+    for (int i = 0; i < numberOfQuadsToDraw; ++i) {
+        Quad quad = [self.textureAtlas quadAtPosition:CGPointMake(rand() % (NSUInteger) self.scaledBounds.width,
+                                                                  rand() % (NSUInteger) self.scaledBounds.height)
+                                          withTexture:rand() % 1057];
+        [self.quadRenderer addQuad:quad];
+    }
 }
 
 #pragma mark - GLKView and GLKViewController delegate methods
