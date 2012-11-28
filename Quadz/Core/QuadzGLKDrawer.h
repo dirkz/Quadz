@@ -1,8 +1,8 @@
 //
-//  QuadzViewController.m
+//  QuadzGLKDrawer
 //  Quadz
 //
-//  Created by Dirk Zimmermann on 10/26/12.
+//  Created by Dirk Zimmermann on 11/28/12.
 //  Copyright (c) 2012 Dirk Zimmermann. All rights reserved.
 //
 
@@ -22,30 +22,17 @@
 // limitations under the License.
 //
 
-#import "QuadzViewController.h"
+#import <Foundation/Foundation.h>
+#import <GLKit/GLKit.h>
 
-#import "DLog.h"
-#import "QuadzGLKDrawer.h"
+@interface QuadzGLKDrawer : NSObject <GLKViewDelegate, GLKViewControllerDelegate>
 
-@interface QuadzViewController ()
+@property (nonatomic) GLKView *view;
 
-@property (nonatomic) QuadzGLKDrawer *drawer;
-
-@end
-
-@implementation QuadzViewController
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    self.preferredFramesPerSecond = 60;
-    self.drawer = [[QuadzGLKDrawer alloc] initWithGLKViewController:self];
-}
-
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
-{
-    [self.drawer didRotateFromInterfaceOrientation:fromInterfaceOrientation];
-}
+- (id)initWithGLKViewController:(GLKViewController *)viewController;
+- (id)initWithGLKView:(GLKView *)view;
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation;
+- (void)setupClearColor;
+- (void)setupTextureAtlas;
 
 @end

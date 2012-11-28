@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4321458416662E950044DAE3 /* QuadzGLKDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4321458316662E950044DAE3 /* QuadzGLKDrawer.m */; };
 		4388DDAC163FE4B9009D3E3C /* RectTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 4388DDAB163FE4B9009D3E3C /* RectTextureAtlas.m */; };
 		43BF229A163BBCB50036A379 /* Quad.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BF2299163BBCB50036A379 /* Quad.m */; };
 		43BF22A1163BD0260036A379 /* PodArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BF22A0163BD0260036A379 /* PodArray.m */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4321458216662E950044DAE3 /* QuadzGLKDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadzGLKDrawer.h; sourceTree = "<group>"; };
+		4321458316662E950044DAE3 /* QuadzGLKDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadzGLKDrawer.m; sourceTree = "<group>"; };
 		4388DDAA163FE4B9009D3E3C /* RectTextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectTextureAtlas.h; sourceTree = "<group>"; };
 		4388DDAB163FE4B9009D3E3C /* RectTextureAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectTextureAtlas.m; sourceTree = "<group>"; };
 		43BF2298163BBCB50036A379 /* Quad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quad.h; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 				43F401DC163D1F7C00F1A370 /* QuadRenderer.m */,
 				4388DDAA163FE4B9009D3E3C /* RectTextureAtlas.h */,
 				4388DDAB163FE4B9009D3E3C /* RectTextureAtlas.m */,
+				4321458216662E950044DAE3 /* QuadzGLKDrawer.h */,
+				4321458316662E950044DAE3 /* QuadzGLKDrawer.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 				43F401D9163D134E00F1A370 /* QuadArray.m in Sources */,
 				43F401DD163D1F7C00F1A370 /* QuadRenderer.m in Sources */,
 				4388DDAC163FE4B9009D3E3C /* RectTextureAtlas.m in Sources */,
+				4321458416662E950044DAE3 /* QuadzGLKDrawer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
