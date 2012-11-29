@@ -42,9 +42,6 @@ typedef enum : NSUInteger {
 }
 
 @property (strong, nonatomic) EAGLContext *context;
-@property (nonatomic, readonly) CGSize scaledBounds;
-@property (nonatomic) QuadRenderer *quadRenderer;
-@property (nonatomic) RectTextureAtlas *textureAtlas;
 
 @end
 
@@ -55,6 +52,7 @@ typedef enum : NSUInteger {
     self = [super init];
     if (self) {
         _view = view;
+        DLog(@"%s view %@", __PRETTY_FUNCTION__, self.view);
         _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
         
         if (!self.context) {

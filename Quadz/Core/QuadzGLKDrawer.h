@@ -25,9 +25,15 @@
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
 
+@class QuadRenderer;
+@class RectTextureAtlas;
+
 @interface QuadzGLKDrawer : NSObject <GLKViewDelegate, GLKViewControllerDelegate>
 
 @property (nonatomic) GLKView *view;
+@property (nonatomic, readonly) CGSize scaledBounds;
+@property (nonatomic) QuadRenderer *quadRenderer;
+@property (nonatomic) RectTextureAtlas *textureAtlas;
 
 - (id)initWithGLKViewController:(GLKViewController *)viewController;
 - (id)initWithGLKView:(GLKView *)view;
