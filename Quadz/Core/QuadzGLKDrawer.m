@@ -180,6 +180,12 @@ typedef enum : NSUInteger {
                       self.view.bounds.size.height * self.view.contentScaleFactor);
 }
 
+- (CGPoint)scaledCenter
+{
+    CGSize bounds = self.scaledBounds;
+    return CGPointMake(bounds.width/2, bounds.height/2);
+}
+
 #pragma mark - GLKView and GLKViewController delegate methods
 
 - (void)glkViewControllerUpdate:(GLKViewController *)controller

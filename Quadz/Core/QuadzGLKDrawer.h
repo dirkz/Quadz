@@ -32,6 +32,7 @@
 
 @property (nonatomic) GLKView *view;
 @property (nonatomic, readonly) CGSize scaledBounds;
+@property (nonatomic, readonly) CGPoint scaledCenter;
 @property (nonatomic) QuadRenderer *quadRenderer;
 @property (nonatomic) RectTextureAtlas *textureAtlas;
 
