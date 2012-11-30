@@ -26,7 +26,7 @@
 
 #import "DLog.h"
 #import "QuadRenderer.h"
-#import "RectTextureAtlas.h"
+#import "QuadzRectTextureAtlas.h"
 
 static NSString * const QuadzGLKDrawerBounds = @"bounds";
 
@@ -101,7 +101,7 @@ typedef enum : NSUInteger {
 {
     NSString *texImagePath = [[NSBundle mainBundle] pathForResource:@"absurd124.png" ofType:nil];
     UIImage *texImage = [UIImage imageWithContentsOfFile:texImagePath];
-    self.textureAtlas = [[RectTextureAtlas alloc] initWithImage:texImage tilesize:CGSizeMake(124.f, 124.f)];
+    self.textureAtlas = [[QuadzRectTextureAtlas alloc] initWithImage:texImage tilesize:CGSizeMake(124.f, 124.f)];
 }
 
 - (void)setupGL

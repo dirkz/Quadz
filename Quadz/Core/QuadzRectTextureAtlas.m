@@ -1,5 +1,5 @@
 //
-//  RectTextureAtlas.m
+//  QuadzRectTextureAtlas
 //  Quadz
 //
 //  Created by Dirk Zimmermann on 10/30/12.
@@ -24,9 +24,9 @@
 
 #import <GLKit/GLKit.h>
 
-#import "RectTextureAtlas.h"
+#import "QuadzRectTextureAtlas.h"
 
-@implementation RectTextureAtlas
+@implementation QuadzRectTextureAtlas
 {
     NSUInteger _rows;
     CGSize _textureTileSize;

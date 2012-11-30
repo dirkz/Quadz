@@ -1,5 +1,5 @@
 //
-//  RectTextureAtlas.h
+//  QuadzRectTextureAtlas
 //  Quadz
 //
 //  Created by Dirk Zimmermann on 10/30/12.
@@ -38,7 +38,7 @@ enum TextureAtlasCoordinates : NSUInteger {
 
 /** Very simple texture atlas with each texture the same rectangular size, indexed by number starting with texture
    0 in the top left. */
-@interface RectTextureAtlas : NSObject
+@interface QuadzRectTextureAtlas : NSObject
 
 @property (nonatomic, readonly) GLKTextureInfo *textureInfo;
 @property (nonatomic, readonly) NSUInteger numberOfTextures;
