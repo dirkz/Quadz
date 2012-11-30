@@ -43,9 +43,4 @@
     self.drawer = [[QuadzGLKDrawer alloc] initWithGLKViewController:self];
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
-{
-    [self.drawer didRotateFromInterfaceOrientation:fromInterfaceOrientation];
-}
-
 @end

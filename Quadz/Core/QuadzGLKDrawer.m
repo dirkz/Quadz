@@ -28,6 +28,8 @@
 #import "QuadRenderer.h"
 #import "RectTextureAtlas.h"
 
+static NSString * const QuadzGLKDrawerBounds = @"bounds";
+
 // Uniform index
 typedef enum : NSUInteger {
     UniformIndexModelViewProjection,
@@ -65,6 +67,8 @@ typedef enum : NSUInteger {
         _quadRenderer = [[QuadRenderer alloc] init];
         [self setupGL];
         self.view.delegate = self;
+        [self.view addObserver:self forKeyPath:QuadzGLKDrawerBounds options:NSKeyValueObservingOptionOld |
+         NSKeyValueObservingOptionNew context:NULL];
     }
     return self;
 }
@@ -79,6 +83,8 @@ typedef enum : NSUInteger {
 
 - (void)dealloc
 {
+    [self.view removeObserver:self forKeyPath:QuadzGLKDrawerBounds];
+
     [self tearDownGL];
     
     if ([EAGLContext currentContext] == self.context) {
@@ -138,9 +144,18 @@ typedef enum : NSUInteger {
     }
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change
+                       context:(void *)context
 {
-    [self setupProjection];
+    if (object == self.view && [keyPath isEqualToString:QuadzGLKDrawerBounds]) {
+        CGRect old = [[change objectForKey:NSKeyValueChangeOldKey] CGRectValue];
+        CGRect new = [[change objectForKey:NSKeyValueChangeNewKey] CGRectValue];
+        if (!CGRectEqualToRect(old, new)) {
+            [self setupProjection];
+        }
+    }
 }
 
 #pragma mark - Util

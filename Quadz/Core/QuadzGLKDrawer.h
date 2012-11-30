@@ -37,7 +37,6 @@
 
 - (id)initWithGLKViewController:(GLKViewController *)viewController;
 - (id)initWithGLKView:(GLKView *)view;
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation;
 - (void)setupClearColor;
 - (void)setupTextureAtlas;
 
