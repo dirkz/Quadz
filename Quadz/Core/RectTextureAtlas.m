@@ -28,7 +28,6 @@
 
 @implementation RectTextureAtlas
 {
-    CGSize _tilesize;
     NSUInteger _rows;
     CGSize _textureTileSize;
 }

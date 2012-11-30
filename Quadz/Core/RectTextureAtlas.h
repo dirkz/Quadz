@@ -42,6 +42,7 @@ enum TextureAtlasCoordinates : NSUInteger {
 
 @property (nonatomic, readonly) GLKTextureInfo *textureInfo;
 @property (nonatomic, readonly) NSUInteger numberOfTextures;
+@property (nonatomic, readonly) CGSize tilesize;
 
 - (id)initWithImage:(UIImage *)image tilesize:(CGSize)tilesize;
 
