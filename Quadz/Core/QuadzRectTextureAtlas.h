@@ -41,7 +41,7 @@ enum TextureAtlasCoordinates : NSUInteger {
 @interface QuadzRectTextureAtlas : NSObject
 
 @property (nonatomic, readonly) GLKTextureInfo *textureInfo;
-@property (nonatomic, readonly) NSUInteger numberOfTextures;
+@property (nonatomic, assign) NSUInteger numberOfTextures;
 @property (nonatomic, readonly) CGSize tilesize;
 
 - (id)initWithImage:(UIImage *)image tilesize:(CGSize)tilesize;

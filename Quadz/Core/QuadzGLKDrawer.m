@@ -27,6 +27,10 @@
 #import "DLog.h"
 #import "QuadRenderer.h"
 #import "QuadzRectTextureAtlas.h"
+#import "QuadzFontTextureAtlas.h"
+
+/** Whether to use a font texture or not */
+static const int QuadzGLKDrawerFontTexture = 0;
 
 static NSString * const QuadzGLKDrawerBounds = @"bounds";
 
@@ -99,9 +103,15 @@ typedef enum : NSUInteger {
 
 - (void)setupTextureAtlas;
 {
-    NSString *texImagePath = [[NSBundle mainBundle] pathForResource:@"absurd124.png" ofType:nil];
-    UIImage *texImage = [UIImage imageWithContentsOfFile:texImagePath];
-    self.textureAtlas = [[QuadzRectTextureAtlas alloc] initWithImage:texImage tilesize:CGSizeMake(124.f, 124.f)];
+    if (QuadzGLKDrawerFontTexture) {
+        UIFont *font = [UIFont fontWithName:@"CourierNewPS-BoldMT" size:96.f];
+        self.textureAtlas = [[QuadzFontTextureAtlas alloc] initWithTilesize:CGSizeMake(124.f, 124.f)
+                                                                       font:font start:'A' end:'z'];
+    } else {
+        NSString *texImagePath = [[NSBundle mainBundle] pathForResource:@"absurd124.png" ofType:nil];
+        UIImage *texImage = [UIImage imageWithContentsOfFile:texImagePath];
+        self.textureAtlas = [[QuadzRectTextureAtlas alloc] initWithImage:texImage tilesize:CGSizeMake(124.f, 124.f)];
+    }
 }
 
 - (void)setupGL
@@ -190,12 +200,13 @@ typedef enum : NSUInteger {
 
 - (void)glkViewControllerUpdate:(GLKViewController *)controller
 {
-    [self.quadRenderer removeAllQuads];
+    //[self.quadRenderer removeAllQuads];
     NSUInteger numberOfQuadsToDraw = rand() % (80 * 21 + 1);
+    numberOfQuadsToDraw = 1;
     for (int i = 0; i < numberOfQuadsToDraw; ++i) {
         Quad quad = [self.textureAtlas quadAtPosition:CGPointMake(rand() % (NSUInteger) self.scaledBounds.width,
                                                                   rand() % (NSUInteger) self.scaledBounds.height)
-                                          withTexture:rand() % 1057];
+                                          withTexture:rand() % self.textureAtlas.numberOfTextures];
         QuadSetWidth(&quad, 64.f);
         QuadSetHeight(&quad, 64.f);
         [self.quadRenderer addQuad:quad];

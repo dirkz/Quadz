@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4321458416662E950044DAE3 /* QuadzGLKDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4321458316662E950044DAE3 /* QuadzGLKDrawer.m */; };
 		4388DDAC163FE4B9009D3E3C /* QuadzRectTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 4388DDAB163FE4B9009D3E3C /* QuadzRectTextureAtlas.m */; };
+		43A0E0C41668F84F00FA4207 /* QuadzFontTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 43A0E0C31668F84E00FA4207 /* QuadzFontTextureAtlas.m */; };
 		43BF229A163BBCB50036A379 /* Quad.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BF2299163BBCB50036A379 /* Quad.m */; };
 		43BF22A1163BD0260036A379 /* PodArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BF22A0163BD0260036A379 /* PodArray.m */; };
 		43BF22A2163BD5AD0036A379 /* PodArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BF22A0163BD0260036A379 /* PodArray.m */; };
@@ -52,6 +53,8 @@
 		4321458316662E950044DAE3 /* QuadzGLKDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadzGLKDrawer.m; sourceTree = "<group>"; };
 		4388DDAA163FE4B9009D3E3C /* QuadzRectTextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadzRectTextureAtlas.h; sourceTree = "<group>"; };
 		4388DDAB163FE4B9009D3E3C /* QuadzRectTextureAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadzRectTextureAtlas.m; sourceTree = "<group>"; };
+		43A0E0C21668F84E00FA4207 /* QuadzFontTextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadzFontTextureAtlas.h; sourceTree = "<group>"; };
+		43A0E0C31668F84E00FA4207 /* QuadzFontTextureAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadzFontTextureAtlas.m; sourceTree = "<group>"; };
 		43BF2298163BBCB50036A379 /* Quad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quad.h; sourceTree = "<group>"; };
 		43BF2299163BBCB50036A379 /* Quad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quad.m; sourceTree = "<group>"; };
 		43BF229F163BD0260036A379 /* PodArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PodArray.h; sourceTree = "<group>"; };
@@ -135,6 +138,8 @@
 				43F401DC163D1F7C00F1A370 /* QuadRenderer.m */,
 				4388DDAA163FE4B9009D3E3C /* QuadzRectTextureAtlas.h */,
 				4388DDAB163FE4B9009D3E3C /* QuadzRectTextureAtlas.m */,
+				43A0E0C21668F84E00FA4207 /* QuadzFontTextureAtlas.h */,
+				43A0E0C31668F84E00FA4207 /* QuadzFontTextureAtlas.m */,
 				4321458216662E950044DAE3 /* QuadzGLKDrawer.h */,
 				4321458316662E950044DAE3 /* QuadzGLKDrawer.m */,
 			);
@@ -381,6 +386,7 @@
 				43F401DD163D1F7C00F1A370 /* QuadRenderer.m in Sources */,
 				4388DDAC163FE4B9009D3E3C /* QuadzRectTextureAtlas.m in Sources */,
 				4321458416662E950044DAE3 /* QuadzGLKDrawer.m in Sources */,
+				43A0E0C41668F84F00FA4207 /* QuadzFontTextureAtlas.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
