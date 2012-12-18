@@ -43,13 +43,14 @@ typedef struct {
     CGFloat width, height;
     CGRect texture; // texture rectangle with origin top left
     QuadzColor color; // foreground color
+    QuadzColor backgroundColor;
 } Quad;
 
 static inline Quad QuadWithTextureRect(int16_t x, int16_t y, int16_t width, int16_t height, CGRect texRect)
 {
     Quad q = {
         x, y, width, height, texRect.origin.x, texRect.origin.y, texRect.size.width, texRect.size.height,
-        255, 255, 255, 255
+        255, 255, 255, 255, 0, 0, 0, 0
     };
     return q;
 }
@@ -64,7 +65,11 @@ static inline void QuadSetWidth(Quad *q, CGFloat width) { q->width = width; }
 static inline void QuadSetHeight(Quad *q, CGFloat height) { q->height = height; }
 static inline void QuadSetSize(Quad *q, CGSize size) { q->width = size.width; q->height = size.height; }
 static inline QuadzColor QuadColor(Quad q) { return q.color; }
+static inline QuadzColor QuadBackgroundColor(Quad q) { return q.backgroundColor; }
 static inline CGRect QuadTextureRect(Quad q) { return q.texture; }
 static inline void QuadSetColor(Quad *q, QuadzColor color) {
     q->color = color;
+}
+static inline void QuadSetBackgroundColor(Quad *q, QuadzColor color) {
+    q->backgroundColor = color;
 }

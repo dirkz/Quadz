@@ -238,6 +238,7 @@ typedef enum : NSUInteger {
                 quad = [self.fontTextureAtlas quadAtPosition:position
                                                     withChar:[sample characterAtIndex:rand() % sample.length]];
                 QuadSetColor(&quad, QuadzColorMake(rand() % 255, rand() % 255, rand() % 255, 255));
+                QuadSetBackgroundColor(&quad, QuadzColorMake(rand() % 255, rand() % 255, rand() % 255, 255));
             }
                 break;
         }
@@ -285,6 +286,7 @@ typedef enum : NSUInteger {
     // This needs to be done prior to linking.
     glBindAttribLocation(_program, AttributeIndexPosition, "a_position");
     glBindAttribLocation(_program, AttributeIndexColor, "a_color");
+    glBindAttribLocation(_program, AttributeIndexBackgroundColor, "a_backgroundColor");
     glBindAttribLocation(_program, AttributeIndexTexture0, "a_texCoord0");
     
     // Link program.

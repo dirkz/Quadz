@@ -33,13 +33,16 @@ typedef struct {
     GLfloat position[2];
     GLfloat texture0[2];
     GLubyte color[4];
+    GLubyte backgroundColor[4];
 } vertex_t;
 
 typedef GLushort QuadRendererIndexType;
 
-static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLfloat s, GLfloat t, QuadzColor color)
+static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLfloat s, GLfloat t, QuadzColor color,
+                                                  QuadzColor backgroundColor)
 {
-    vertex_t v = { x, y, s, t, color.r, color.g, color.b, color.a };
+    vertex_t v = { x, y, s, t, color.r, color.g, color.b, color.a,
+        backgroundColor.r, backgroundColor.g, backgroundColor.b, backgroundColor.a };
     return v;
 }
 
@@ -111,28 +114,28 @@ static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLfloat 
         *vertex++ = VertexMakeWithColorPointer(QuadX(quad) - halfWidth, QuadY(quad) - halfHeight,
                                                textureRect.origin.x,
                                                textureRect.origin.y - textureRect.size.height,
-                                               QuadColor(quad));
+                                               QuadColor(quad), QuadBackgroundColor(quad));
         *index++ = _lastIndex++;
 
         // bottom right
         *vertex++ = VertexMakeWithColorPointer(QuadX(quad) + halfWidth, QuadY(quad) - halfHeight,
                                                textureRect.origin.x + textureRect.size.width,
                                                textureRect.origin.y - textureRect.size.height,
-                                               QuadColor(quad));
+                                               QuadColor(quad), QuadBackgroundColor(quad));
         *index++ = _lastIndex++;
 
         // top left
         *vertex++ = VertexMakeWithColorPointer(QuadX(quad) - halfWidth, QuadY(quad) + halfHeight,
                                                textureRect.origin.x,
                                                textureRect.origin.y,
-                                               QuadColor(quad));
+                                               QuadColor(quad), QuadBackgroundColor(quad));
         *index++ = _lastIndex++;
 
         // top right
         *vertex++ = VertexMakeWithColorPointer(QuadX(quad) + halfWidth, QuadY(quad) + halfHeight,
                                                textureRect.origin.x + textureRect.size.width,
                                                textureRect.origin.y,
-                                               QuadColor(quad));
+                                               QuadColor(quad), QuadBackgroundColor(quad));
         *index++ = _lastIndex++;
     }
 }
@@ -178,7 +181,11 @@ static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLfloat 
         glEnableVertexAttribArray(AttributeIndexColor);
         glVertexAttribPointer(AttributeIndexColor, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(vertex_t),
                               (GLvoid *) offsetof(vertex_t, color));
-
+        
+        glEnableVertexAttribArray(AttributeIndexBackgroundColor);
+        glVertexAttribPointer(AttributeIndexBackgroundColor, 4, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(vertex_t),
+                              (GLvoid *) offsetof(vertex_t, backgroundColor));
+        
         glEnableVertexAttribArray(AttributeIndexTexture0);
         glVertexAttribPointer(AttributeIndexTexture0, 2, GL_FLOAT, GL_FALSE, sizeof(vertex_t),
                               (GLvoid *) offsetof(vertex_t, texture0));

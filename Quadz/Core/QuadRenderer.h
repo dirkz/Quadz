@@ -29,7 +29,8 @@
 // Attribute index.
 typedef enum : NSUInteger {
     AttributeIndexPosition,
-    AttributeIndexColor,
+    AttributeIndexColor, // foreground color
+    AttributeIndexBackgroundColor,
     AttributeIndexTexture0,
     AttributeIndexMax
 } AttributeIndex;
