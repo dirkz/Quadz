@@ -42,14 +42,8 @@ typedef struct {
     CGFloat x, y; // center position
     CGFloat width, height;
     CGRect texture; // texture rectangle with origin top left
-    QuadzColor color;
+    QuadzColor color; // foreground color
 } Quad;
-
-static inline Quad QuadWithColor(int16_t x, int16_t y, int16_t width, int16_t height, uint8_t *color)
-{
-    Quad q = { x, y, width, height, 0.f, 0.f, 0.f, 0.f, color[0], color[1], color[2], color[3] };
-    return q;
-}
 
 static inline Quad QuadWithTextureRect(int16_t x, int16_t y, int16_t width, int16_t height, CGRect texRect)
 {
