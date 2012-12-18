@@ -38,6 +38,8 @@
 @property (nonatomic) QuadzRectTextureAtlas *textureAtlas;
 @property (nonatomic) QuadzBMFontTextureAtlas *fontTextureAtlas;
 
++ (id)drawerWithGLKView:(GLKView *)view;
+
 - (id)initWithGLKViewController:(GLKViewController *)viewController;
 - (id)initWithGLKView:(GLKView *)view;
 - (void)setupClearColor;

@@ -59,6 +59,11 @@ typedef enum : NSUInteger {
 
 @implementation QuadzGLKDrawer
 
++ (id)drawerWithGLKView:(GLKView *)view
+{
+    return [[self alloc] initWithGLKView:view];
+}
+
 - (id)initWithGLKView:(GLKView *)view
 {
     self = [super init];

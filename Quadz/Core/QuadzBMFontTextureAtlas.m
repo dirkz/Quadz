@@ -201,7 +201,7 @@
 - (CGRect)textureRectForChar:(unichar)character
 {
     QuadzBMFontCharacter *bmChar = [self.letters objectForKey:[NSNumber numberWithUnsignedInt:character]];
-    NSAssert1(bmChar, @"Character %d not contained in texture atlas", character);
+    NSAssert2(bmChar, @"Character '%C' %d not contained in texture atlas", character, character);
     return [self textureRectForBMFontCharacter:bmChar];
 }
 
