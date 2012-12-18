@@ -37,8 +37,12 @@
 /** All chars as one string */
 @property (nonatomic, readonly, copy) NSString *sample;
 
+@property (nonatomic, readonly) CGSize tilesize;
+
 - (id)initWithPath:(NSString *)path;
 - (CGRect)textureRectForChar:(unichar)character;
-- (Quad)quadAtPosition:(CGPoint)position withChar:(unichar)character;
+
+/** A quad of the given char centered *exactly* around position, mo traits taken into account */
+- (Quad)quadCenteredAtPosition:(CGPoint)position withChar:(unichar)character;
 
 @end

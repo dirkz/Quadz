@@ -240,8 +240,8 @@ typedef enum : NSUInteger {
                 break;
             case QuadzGLKDrawerBMFontTexture: {
                 NSString *sample = self.fontTextureAtlas.sample;
-                quad = [self.fontTextureAtlas quadAtPosition:position
-                                                    withChar:[sample characterAtIndex:rand() % sample.length]];
+                quad = [self.fontTextureAtlas
+                        quadCenteredAtPosition:position withChar:[sample characterAtIndex:rand() % sample.length]];
                 QuadSetColor(&quad, QuadzColorMake(rand() % 255, rand() % 255, rand() % 255, 255));
                 QuadSetBackgroundColor(&quad, QuadzColorMake(rand() % 255, rand() % 255, rand() % 255, 255));
             }

@@ -145,12 +145,14 @@
              width = [value intValue];
          } else if ([key isEqualToString:@"height"]) {
              height = [value intValue];
+             _tilesize = CGSizeMake(self.tilesize.width, MAX(height, self.tilesize.height));
          } else if ([key isEqualToString:@"xoffset"]) {
              xoffset = [value intValue];
          } else if ([key isEqualToString:@"yoffset"]) {
              yoffset = [value intValue];
          } else if ([key isEqualToString:@"xadvance"]) {
              xadvance = [value intValue];
+             _tilesize = CGSizeMake(MAX(self.tilesize.width, xadvance), self.tilesize.height);
          } else if ([key isEqualToString:@"letter"]) {
              letter = value;
          }
@@ -205,7 +207,7 @@
     return [self textureRectForBMFontCharacter:bmChar];
 }
 
-- (Quad)quadAtPosition:(CGPoint)position withChar:(unichar)character
+- (Quad)quadCenteredAtPosition:(CGPoint)position withChar:(unichar)character
 {
     QuadzBMFontCharacter *bmChar = [self.letters objectForKey:[NSNumber numberWithUnsignedInt:character]];
     NSAssert1(bmChar, @"Character %d not contained in texture atlas", character);
