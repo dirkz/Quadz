@@ -37,9 +37,9 @@ typedef struct {
 
 typedef GLushort QuadRendererIndexType;
 
-static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLfloat s, GLfloat t, GLubyte *color)
+static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLfloat s, GLfloat t, QuadzColor color)
 {
-    vertex_t v = { x, y, s, t, color[0], color[1], color[2], color[3] };
+    vertex_t v = { x, y, s, t, color.r, color.g, color.b, color.a };
     return v;
 }
 
@@ -111,28 +111,28 @@ static inline vertex_t VertexMakeWithColorPointer(GLfloat x, GLfloat y, GLfloat 
         *vertex++ = VertexMakeWithColorPointer(QuadX(quad) - halfWidth, QuadY(quad) - halfHeight,
                                                textureRect.origin.x,
                                                textureRect.origin.y - textureRect.size.height,
-                                               QuadColor(&quad));
+                                               QuadColor(quad));
         *index++ = _lastIndex++;
 
         // bottom right
         *vertex++ = VertexMakeWithColorPointer(QuadX(quad) + halfWidth, QuadY(quad) - halfHeight,
                                                textureRect.origin.x + textureRect.size.width,
                                                textureRect.origin.y - textureRect.size.height,
-                                               QuadColor(&quad));
+                                               QuadColor(quad));
         *index++ = _lastIndex++;
 
         // top left
         *vertex++ = VertexMakeWithColorPointer(QuadX(quad) - halfWidth, QuadY(quad) + halfHeight,
                                                textureRect.origin.x,
                                                textureRect.origin.y,
-                                               QuadColor(&quad));
+                                               QuadColor(quad));
         *index++ = _lastIndex++;
 
         // top right
         *vertex++ = VertexMakeWithColorPointer(QuadX(quad) + halfWidth, QuadY(quad) + halfHeight,
                                                textureRect.origin.x + textureRect.size.width,
                                                textureRect.origin.y,
-                                               QuadColor(&quad));
+                                               QuadColor(quad));
         *index++ = _lastIndex++;
     }
 }

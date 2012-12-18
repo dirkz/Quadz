@@ -237,8 +237,7 @@ typedef enum : NSUInteger {
                 NSString *sample = self.fontTextureAtlas.sample;
                 quad = [self.fontTextureAtlas quadAtPosition:position
                                                     withChar:[sample characterAtIndex:rand() % sample.length]];
-                uint8_t color[] = { rand() % 255, rand() % 255, rand() % 255, 255 };
-                QuadSetColor(&quad, color);
+                QuadSetColor(&quad, QuadzColorMake(rand() % 255, rand() % 255, rand() % 255, 255));
             }
                 break;
         }

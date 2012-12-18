@@ -24,11 +24,25 @@
 
 #import <Foundation/Foundation.h>
 
+typedef struct _QuadzColor
+{
+    GLubyte r;
+    GLubyte g;
+    GLubyte b;
+    GLubyte a;
+} QuadzColor;
+
+static inline QuadzColor QuadzColorMake(GLubyte r, GLubyte g, GLubyte b, GLubyte a)
+{
+    QuadzColor color = { r, g, b, a };
+    return color;
+}
+
 typedef struct {
     CGFloat x, y; // center position
     CGFloat width, height;
     CGRect texture; // texture rectangle with origin top left
-    uint8_t color[4];
+    QuadzColor color;
 } Quad;
 
 static inline Quad QuadWithColor(int16_t x, int16_t y, int16_t width, int16_t height, uint8_t *color)
@@ -55,9 +69,8 @@ static inline CGSize QuadSize(Quad q) { return CGSizeMake(q.width, q.height); }
 static inline void QuadSetWidth(Quad *q, CGFloat width) { q->width = width; }
 static inline void QuadSetHeight(Quad *q, CGFloat height) { q->height = height; }
 static inline void QuadSetSize(Quad *q, CGSize size) { q->width = size.width; q->height = size.height; }
-static inline uint8_t *QuadColor(Quad *q) { return q->color; }
+static inline QuadzColor QuadColor(Quad q) { return q.color; }
 static inline CGRect QuadTextureRect(Quad q) { return q.texture; }
-static inline void QuadSetColor(Quad *q, uint8_t color[4]) {
-    q->color[0] = color[0]; q->color[1] = color[1];
-    q->color[2] = color[2]; q->color[3] = color[3];
+static inline void QuadSetColor(Quad *q, QuadzColor color) {
+    q->color = color;
 }
