@@ -28,9 +28,15 @@
 #import "QuadRenderer.h"
 #import "QuadzRectTextureAtlas.h"
 #import "QuadzFontTextureAtlas.h"
+#import "QuadzBMFontTextureAtlas.h"
 
 /** Whether to use a font texture or not */
-static const int QuadzGLKDrawerFontTexture = 0;
+static const enum
+{
+    QuadzGLKDrawerTexture = 0,
+    QuadzGLKDrawerRectFontTexture,
+    QuadzGLKDrawerBMFontTexture,
+} QuadzGLKDrawerTextureType = QuadzGLKDrawerBMFontTexture;
 
 static NSString * const QuadzGLKDrawerBounds = @"bounds";
 
@@ -103,14 +109,26 @@ typedef enum : NSUInteger {
 
 - (void)setupTextureAtlas;
 {
-    if (QuadzGLKDrawerFontTexture) {
-        UIFont *font = [UIFont fontWithName:@"CourierNewPS-BoldMT" size:96.f];
-        self.textureAtlas = [[QuadzFontTextureAtlas alloc] initWithTilesize:CGSizeMake(124.f, 124.f)
-                                                                       font:font start:'A' end:'z'];
-    } else {
-        NSString *texImagePath = [[NSBundle mainBundle] pathForResource:@"absurd124.png" ofType:nil];
-        UIImage *texImage = [UIImage imageWithContentsOfFile:texImagePath];
-        self.textureAtlas = [[QuadzRectTextureAtlas alloc] initWithImage:texImage tilesize:CGSizeMake(124.f, 124.f)];
+    switch (QuadzGLKDrawerTextureType) {
+        case QuadzGLKDrawerTexture: {
+            NSString *texImagePath = [[NSBundle mainBundle] pathForResource:@"absurd124.png" ofType:nil];
+            UIImage *texImage = [UIImage imageWithContentsOfFile:texImagePath];
+            self.textureAtlas = [[QuadzRectTextureAtlas alloc] initWithImage:texImage
+                                                                    tilesize:CGSizeMake(124.f, 124.f)];
+        }
+            break;
+        case QuadzGLKDrawerRectFontTexture: {
+            UIFont *font = [UIFont fontWithName:@"CourierNewPS-BoldMT" size:96.f];
+            self.textureAtlas = [[QuadzFontTextureAtlas alloc] initWithTilesize:CGSizeMake(124.f, 124.f)
+                                                                           font:font start:'A' end:'z'];
+        }
+            break;
+            
+        case QuadzGLKDrawerBMFontTexture: {
+            NSString *fntFilePath = [[NSBundle mainBundle] pathForResource:@"BMFont.fnt" ofType:nil];
+            self.fontTextureAtlas = [[QuadzBMFontTextureAtlas alloc] initWithPath:fntFilePath];
+        }
+            break;
     }
 }
 
@@ -204,11 +222,26 @@ typedef enum : NSUInteger {
     NSUInteger numberOfQuadsToDraw = rand() % (80 * 21 + 1);
     numberOfQuadsToDraw = 1;
     for (int i = 0; i < numberOfQuadsToDraw; ++i) {
-        Quad quad = [self.textureAtlas quadAtPosition:CGPointMake(rand() % (NSUInteger) self.scaledBounds.width,
-                                                                  rand() % (NSUInteger) self.scaledBounds.height)
-                                          withTexture:rand() % self.textureAtlas.numberOfTextures];
-        QuadSetWidth(&quad, 64.f);
-        QuadSetHeight(&quad, 64.f);
+        CGPoint position = CGPointMake(rand() % (NSUInteger) self.scaledBounds.width,
+                                       rand() % (NSUInteger) self.scaledBounds.height);
+        Quad quad;
+        switch (QuadzGLKDrawerTextureType) {
+            case QuadzGLKDrawerTexture:
+            case QuadzGLKDrawerRectFontTexture:
+                quad = [self.textureAtlas quadAtPosition:position
+                                             withTexture:rand() % self.textureAtlas.numberOfTextures];
+                QuadSetWidth(&quad, 64.f);
+                QuadSetHeight(&quad, 64.f);
+                break;
+            case QuadzGLKDrawerBMFontTexture: {
+                NSString *sample = self.fontTextureAtlas.sample;
+                quad = [self.fontTextureAtlas quadAtPosition:position
+                                                    withChar:[sample characterAtIndex:rand() % sample.length]];
+                uint8_t color[] = { rand() % 255, rand() % 255, rand() % 255, 255 };
+                QuadSetColor(&quad, color);
+            }
+                break;
+        }
         [self.quadRenderer addQuad:quad];
     }
 }

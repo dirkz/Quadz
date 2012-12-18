@@ -27,6 +27,7 @@
 
 @class QuadRenderer;
 @class QuadzRectTextureAtlas;
+@class QuadzBMFontTextureAtlas;
 
 @interface QuadzGLKDrawer : NSObject <GLKViewDelegate, GLKViewControllerDelegate>
 
@@ -35,6 +36,7 @@
 @property (nonatomic, readonly) CGPoint scaledCenter;
 @property (nonatomic) QuadRenderer *quadRenderer;
 @property (nonatomic) QuadzRectTextureAtlas *textureAtlas;
+@property (nonatomic) QuadzBMFontTextureAtlas *fontTextureAtlas;
 
 - (id)initWithGLKViewController:(GLKViewController *)viewController;
 - (id)initWithGLKView:(GLKView *)view;
