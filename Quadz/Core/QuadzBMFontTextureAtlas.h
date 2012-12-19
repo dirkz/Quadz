@@ -42,7 +42,10 @@
 - (id)initWithPath:(NSString *)path;
 - (CGRect)textureRectForChar:(unichar)character;
 
-/** A quad of the given char centered *exactly* around position, mo traits taken into account */
+/** A quad of the given char centered *exactly* around position, no char traits taken into account */
 - (Quad)quadCenteredAtPosition:(CGPoint)position withChar:(unichar)character;
+
+/** This gives you a char quad that will be aligned according to char traits to the top left */
+- (Quad)quadAtPosition:(CGPoint)position withChar:(unichar)character;
 
 @end

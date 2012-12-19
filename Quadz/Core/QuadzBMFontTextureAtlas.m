@@ -215,4 +215,24 @@
     return QuadWithTextureRect(position.x, position.y, bmChar.width, bmChar.height, texRect);
 }
 
+- (Quad)quadAtPosition:(CGPoint)position withChar:(unichar)character
+{
+    QuadzBMFontCharacter *bmChar = [self.letters objectForKey:[NSNumber numberWithUnsignedInt:character]];
+    NSAssert1(bmChar, @"Character %d not contained in texture atlas", character);
+    CGRect texRect = [self textureRectForBMFontCharacter:bmChar];
+
+    // translate to the top left
+    CGPoint p = CGPointMake(position.x - self.tilesize.width/2.f, position.y + self.tilesize.height/2.f);
+
+    // apply traits
+    p.x += bmChar.xoffset;
+    p.y -= bmChar.yoffset;
+
+    // translate 'back' to 'center'
+    p.x += bmChar.width/2.f;
+    p.y -= bmChar.height/2.f;
+
+    return QuadWithTextureRect(p.x, p.y, bmChar.width, bmChar.height, texRect);
+}
+
 @end
