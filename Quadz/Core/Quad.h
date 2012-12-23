@@ -38,6 +38,26 @@ static inline QuadzColor QuadzColorMake(GLubyte r, GLubyte g, GLubyte b, GLubyte
     return color;
 }
 
+static inline GLubyte QuadzColorRed(QuadzColor c)
+{
+    return c.r;
+}
+
+static inline GLubyte QuadzColorGreen(QuadzColor c)
+{
+    return c.g;
+}
+
+static inline GLubyte QuadzColorBlue(QuadzColor c)
+{
+    return c.b;
+}
+
+static inline GLubyte QuadzColorAlpha(QuadzColor c)
+{
+    return c.a;
+}
+
 typedef struct {
     CGFloat x, y; // center position
     CGFloat width, height;
